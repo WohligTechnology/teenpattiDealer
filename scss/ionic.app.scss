@@ -1,0 +1,719 @@
+    /*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+    $balanced: green !default; // The path for our ionicons font files, relative to the built CSS in www/css
+    $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
+    @import "www/lib/ionic/scss/ionic";
+    .bgImg {
+        background-image: url(../img/bg-added.jpg);
+        width: auto;
+        height: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center right;
+    }
+
+    .mar5 {
+        margin-top: 5%;
+    }
+
+    .centerDiv {
+        height: 100vh;
+        position: relative;
+    }
+
+    .centerRow {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+    }
+
+    .buttonpos {
+        // position: absolute;
+        // bottom: 1%;
+        // right: 1%;
+        // width: 50%;
+        // display: block;
+        margin: 20px 45px;
+        button {
+            background: transparent!important;
+        }
+        i {
+            font-size: 40px;
+            color: red;
+        }
+    }
+
+    .cardimg1 {
+        width: 80%;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+
+    .cardimg {
+        margin: 30% auto;
+        width: 60%;
+        img {
+            width: 100%;
+        }
+    }
+
+    .table-border {
+        border: 3px solid #fff; // height: 180px;
+        // width: 180px;
+        margin: 10px auto;
+        background-color: transparent;
+        display: table;
+        width: 100%;
+        height: 200px;
+        opacity: 0.4;
+    }
+
+    .table-border {
+        border: 3px solid #fff;
+        height: 100px;
+        margin: 10px auto!important;
+        background-color: transparent!important;
+        display: table!important;
+    }
+
+    .platform-ipad .table-border {
+        height: 180px;
+        width: 180px;
+    }
+
+    .dis-cell {
+        display: table-cell;
+        vertical-align: middle;
+        h2 {
+            text-align: center;
+            color: #fff !important;
+            font-size: 25px!important;
+        } // &:hover {
+        //     background-color: red;
+        // }
+        // &:active {
+        //     background-color: red;
+        // }
+        // &:focus {
+        //     background-color: red;
+        // }
+    }
+
+    .platform-ios .dis-cell {
+        h2 {
+            font-size: 20px!important;
+        }
+    }
+
+    .platform-android .dis-cell {
+        h2 {
+            font-size: 20px!important;
+        }
+    }
+
+    .mar-t {
+        margin-top: 20%;
+    }
+
+    .btn-start {
+        font-size: 25px;
+        padding: 0px 20px;
+        margin-top: 30px;
+        width: 90%;
+    }
+
+    .platform-ios .btn-start {
+        font-size: 20px;
+    }
+
+    .platform-ipad .btn-start {
+        padding: 10px 30px;
+        font-size: 25px;
+    }
+
+    .removedpopup {
+        h3 {
+            img {
+                max-width: 35px;
+                max-height: 35px;
+                font-size: 20px!important;
+            }
+        }
+        .popup-title {
+            font-size: 20px;
+            padding: 0px 0px!important;
+        }
+        .popup {
+            border-radius: 5px;
+            width: 250px;
+        }
+        .popup-body {
+            background: white;
+            color: #223c4d;
+            text-align: center;
+            font-weight: 600;
+            padding: 10px 10px;
+            font-size: 20px;
+            h4 {
+                margin: 0;
+                font-size: 20px;
+                color: #223c4d;
+                font-weight: 600;
+            }
+            label {
+                font-size: 20px;
+            }
+        }
+        .popup-head {
+            padding-top: 10px;
+            padding-bottom: 0;
+            border-bottom: none!important;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+            font-size: 20px!important;
+        }
+        .popup-buttons {
+            padding: 0;
+            min-height: 20px;
+            background: cornflowerblue!important;
+            border: none;
+            font-size: 20px;
+            button {
+                border: none;
+                min-height: 40px;
+                font-size: 20px;
+                background: cornflowerblue!important;
+            }
+        }
+    }
+
+    .platform-ipad .removedpopup {
+        h3 {
+            img {
+                max-width: 35px;
+                max-height: 35px;
+                font-size: 30px!important;
+            }
+        }
+        .popup-title {
+            font-size: 30px;
+            padding: 20px 20px!important;
+        }
+        .popup {
+            border-radius: 5px;
+            width: 600px;
+        }
+        .popup-body {
+            background: white;
+            color: #223c4d;
+            text-align: center;
+            font-weight: 600;
+            padding: 30px 30px;
+            font-size: 30px;
+            h4 {
+                margin: 0;
+                font-size: 250px;
+                color: #223c4d;
+                font-weight: 600;
+            }
+            label {
+                font-size: 25px;
+            }
+        }
+        .popup-head {
+            padding-top: 20px;
+            padding-bottom: 0;
+            border-bottom: none!important;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+            font-size: 30px!important;
+        }
+        .popup-buttons {
+            padding: 0;
+            min-height: 40px;
+            background: cornflowerblue!important;
+            border: none;
+            font-size: 30px;
+            button {
+                border: none;
+                min-height: 60px;
+                font-size: 25px;
+                background: cornflowerblue!important;
+            }
+        }
+    } // .players {
+    //     h2 {
+    //         color: white;
+    //         margin-bottom: 20px!important;
+    //         margin: 0px;
+    //         font-size: 20px;
+    //     }
+    // }
+    .playersimgbor {
+        border: 10px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .platform-ipad .players {
+        margin: 10px;
+        h2 {
+            font-size: 30px;
+        }
+    }
+
+    .selected {
+        border: 3px solid orangered;
+    }
+
+    .dummydiv {
+        height: 10px;
+    }
+
+    .rel {
+        position: relative;
+    }
+
+    .player-fold-label,
+    .player-allin-label {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        text-transform: uppercase;
+        display: block;
+        z-index: 10;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 4px 15px;
+    }
+
+    .player-allin-label {
+        background: #387df6;
+        color: white;
+    }
+
+    .player-fold-label {
+        background: white;
+        color: #387df6;
+    }
+
+    .platform-ipad .playerfold {
+        font-size: 26px;
+        padding: 10px 20px;
+        top: 40%;
+    }
+
+    .cardbtn {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        button {
+            font-size: 20px;
+            padding: 0px 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    }
+
+    .platform-ipad .cardbtn {
+        button {
+            font-size: 30px;
+            padding: 10px 30px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    }
+
+    .card1-top {
+        top: 36%;
+        left: 30%;
+    }
+
+    .platform-ipad .card1-top {
+        top: 44%;
+        left: 30%;
+    }
+
+    .card2-top {
+        top: 36%;
+        left: 80%;
+    }
+
+    .platform-ipad .card2-top {
+        top: 44%;
+        right: 2%;
+    }
+
+    .back-color {
+        background-color: rgba(248, 248, 248, 0.7) !important;
+    }
+
+    .blurEffect {
+        opacity: 0.5;
+    }
+
+    .backgroundcl {
+        background: #215767 !important;
+        opacity: 1.0;
+    }
+
+    .platform-ipad .player-select {
+        width: 50%;
+        display: block;
+        margin: 20px 45px;
+        .input-label {
+            font-size: 24px!important;
+            color: white!important;
+        }
+        .item {
+            background-color: transparent!important;
+            color: white!important;
+            font-size: 16px!important;
+        }
+        .item-select select {
+            font-size: 24px!important;
+        }
+    }
+
+    .player-select {
+        width: 60%;
+        display: block;
+        margin: 20px 45px;
+        .input-label {
+            font-size: 16px!important;
+            color: white!important;
+        }
+        .item {
+            background-color: transparent!important;
+            color: white!important;
+            font-size: 16px!important;
+        }
+        .item-select select {
+            font-size: 16px!important;
+            border-radius: 0px!important;
+            direction: ltr!important;
+        }
+    }
+
+    .player-fold {
+        opacity: 0.25;
+    }
+
+    .not-active {
+        opacity: 0.25;
+    } // .player-turn {
+    //     .playerimg {
+    //         background: blue;
+    //     }
+    // }
+    img.player-dealer {
+        width: 50px;
+        position: absolute;
+        left: 10px;
+        top: 20px;
+    }
+
+    @media only screen and (max-width:800px) and (min-width:1280px) {
+        .table-border {
+            border: 3px solid #fff; // height: 180px;
+            // width: 180px;
+            margin: 10px auto;
+            background-color: transparent;
+            display: table;
+            width: 100%;
+            height: 200px;
+            opacity: 0.4;
+        }
+    }
+
+    .users1Card {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        max-width: 200px
+    }
+
+    .users2Card {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        max-width: 200px
+    }
+
+    .users2CardImg {
+        width: 100%;
+    }
+
+    .winnersHead {
+        text-align: center;
+        margin-top: 20px!important;
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+
+    .winner {
+        width: 40%;
+        display: block;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+
+    .winnerName {
+        font-size: 30px;
+    }
+
+    .platform-ipad .winnerName {
+        font-size: 60px!important;
+    }
+
+    .platform-ipad .winnerMsg {
+        color: red;
+        font-size: 50px;
+    }
+
+    .winnerMsg {
+        font-size: 20px;
+        color: red;
+    }
+
+    .marb-30 {
+        margin-bottom: 30px;
+    }
+
+    pre {
+        background: white;
+    }
+
+    .green-velvet-bg {
+        background-image: url('../img/green-velvet.jpg');
+        background-size: cover;
+    }
+
+    .player-ui {
+        h2 {
+            display: block;
+            padding: 25px 20px;
+            font-size: 20px;
+            background-color: white;
+            border-radius: 5px;
+            opacity: 0.3;
+            transition: all 300ms ease;
+            i {
+                font-size: 120px;
+                vertical-align: middle;
+            }
+            span {
+                display: block;
+                font-size: 45px;
+            }
+        }
+        &.player-selected h2 {
+            opacity: 1;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.52);
+        }
+    }
+
+    .poker-list {
+        margin: 50px auto 0;
+        max-width: 800px;
+        .item {
+            border: 4px solid black;
+            border-radius: 20px;
+            background-color: #d8d8d8;
+        }
+        .input-label,
+        .item select {
+            font-size: 25px;
+            color: black;
+        }
+        .item-select select {
+            background-color: #fff;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .button.button-poker {
+        border-color: black;
+        border-width: 4px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        width: auto;
+        padding: 10px 50px;
+    }
+
+    .few-pad {
+        padding: 15px;
+    }
+
+    .p10 {
+        padding: 10px;
+    }
+
+    .winner-section {
+        background: $royal;
+        h2,
+        h4,
+        p {
+            color: #fff;
+        }
+        .badge {
+            background: #fff !important;
+            color: $royal !important;
+        }
+    }
+
+    .item.result-item {
+        padding: 0px 20px;
+        .big-font {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .modal-sure {
+        text-align: center;
+        padding: 55px 20px;
+    }
+
+    .col-60 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 60%;
+        -moz-box-flex: 0;
+        -moz-flex: 0 0 60%;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    .col-40 {
+        -webkit-flex: 0 0 40%;
+        -moz-box-flex: 0;
+        -moz-flex: 0 0 40%;
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+
+    @media (min-width: 680px) {
+        .custom-modal-page.modal {
+            height: 0px;
+        }
+    } //new scss
+    .button-positive.btn-start {
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    .playerimg {
+        height: 45px;
+        width: 45px;
+        border: 2px solid #ddd;
+        padding: 0;
+        margin-top: 6px;
+        float: left;
+        position: relative;
+        h2 {
+            line-height: 1.3;
+            color: $positive;
+            margin-bottom: 20px!important;
+        }
+    }
+
+    .player-turn .playerimg {
+        background: $royal;
+        border-color: $royal;
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .player-dealer,
+    .player-raised {
+        position: absolute;
+        left: -10px;
+        border: 1px solid;
+        border-radius: 50%;
+        padding: 0px 5px;
+        color: #fff;
+    }
+
+    .player-dealer {
+        top: -5px;
+        background: $positive;
+        border-color: $positive;
+    }
+
+    .player-raised {
+        bottom: -5px;
+        background: $assertive;
+        border-color: $assertive;
+    }
+
+    .custom-row {
+        width: calc(100% - 50px);
+        float: left;
+    }
+
+    card.community-card {
+        max-width: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .modal-action-for {
+        color: $assertive;
+        font-size: 1.2em;
+    }
+
+    .button-custom {
+        width: 200px;
+    }
+
+    .button.button-block,
+    .button.button-full {
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
+
+    .m0 {
+        margin: 0;
+    }
+
+    tab button {
+        font-size: 30px !important;
+    }
+
+    .low-opacity {
+        opacity: 0.75;
+    }
+
+    .setting-input {
+        text-align: right;
+    }

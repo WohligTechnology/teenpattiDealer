@@ -1,0 +1,54 @@
+<ion-view view-title="Dealer">
+  <ion-content>
+
+    <div class="centerDiv">
+      <div class="row" ng-repeat="players in playersChunk">
+        <div class="col col-25" ng-repeat="player in players" ng-if="player">
+          <player ng-player="player"></player>
+        </div>
+      </div>
+     
+
+
+      <div class="row" ng-if="hasTurn">
+        <div class="col col-25 text-center">
+          <button class="button button-dark button-block button-outline" ng-click="showConfirmationModal('allIn');">All In</button>
+        </div>
+        <div class="col col-25 text-center">
+          <button class="button button-dark button-block button-outline" ng-click="raise();">Raise</button>
+        </div>
+        <div class="col col-25 text-center" ng-click="move();" ng-if="isCheck">
+          <button class="button button-dark button-block button-outline">Check</button>
+        </div>
+        <div class="col col-25 text-center" ng-click="move();" ng-if="!isCheck">
+          <button class="button button-dark button-block button-outline">Call</button>
+        </div>
+        <div class="col col-25 text-center" ng-click="showConfirmationModal('fold');">
+          <button class="button button-dark button-block button-outline">Fold</button>
+        </div>
+      </div>
+      <div class="row" ng-if="!hasTurn">
+        <div class="col col-100 text-center">
+          <button class="button button-light button-block" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
+          <button class="button button-royal button-block button-outline" ng-show="showWinner" ui-sref="winner">Show Winner</button>
+        </div>
+      </div>
+      <div class="padding-vertical">
+        <div class="row">
+          <div class="col col-25 text-center">
+          </div>
+          <div class="col col-25 text-center">
+          </div>
+          <div class="col col-25 text-center" ng-click="showConfirmationModal('newGame');">
+            <button class="button button-assertive button-block button-outline">New</button>
+          </div>
+          <div class="col col-25 text-center" ng-click="showConfirmationModal('undo');">
+            <button class="button button-assertive button-block  button-outline">Undo</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>
