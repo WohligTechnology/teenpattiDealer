@@ -6,9 +6,10 @@
             <!-- <img class="img-responsive playersimgbor" src="img/person.jpg" alt=""> -->
             <h2>{{player.playerNo}}</h2>
             <!-- <img class="player-dealer"  src="img/dealer.png" alt=""> -->
+
             <div class="player-dealer" ng-if="player.isDealer"> D </div>
-            <div class="player-raised" ng-if="player.hasRaised && !player.isAllIn"> S </div>
-            <div class="player-raised" ng-if="player.hasRaised && !player.isAllIn"> B </div>
+            <div class="player-raised" ng-if="!player.isBlind"> S </div>
+            <div class="player-raised" ng-if="player.isBlind"> B </div>
             <!-- <div ng-show="p.isFold"></div> -->
         </div>
         <div class="row custom-row" ng-if="player.cards.length==0">

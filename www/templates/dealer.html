@@ -10,27 +10,29 @@
      
 
 
-      <div class="row" ng-if="hasTurn">
-        <div class="col col-25 text-center">
-          <button class="button button-dark button-block button-outline" ng-click="showConfirmationModal('allIn');">All In</button>
-        </div>
-        <div class="col col-25 text-center">
-          <button class="button button-dark button-block button-outline" ng-click="raise();">Raise</button>
-        </div>
+      <div class="row" ng-if="hasTurn ">
+        
         <div class="col col-25 text-center" ng-click="move();" ng-if="isCheck">
           <button class="button button-dark button-block button-outline">Check</button>
         </div>
+        <div class="col col-25 text-center" ng-click="move();" >
+          <button class="button button-dark button-block button-outline">Slide Show</button>
+        </div>
         <div class="col col-25 text-center" ng-click="move();" ng-if="!isCheck">
-          <button class="button button-dark button-block button-outline">Call</button>
+          <button class="button button-dark button-block button-outline">Seen</button>
+        </div> 
+        <div class="col col-25 text-center" ng-click="move();" ng-if="!isCheck">
+          <button class="button button-dark button-block button-outline">Chal</button>
         </div>
         <div class="col col-25 text-center" ng-click="showConfirmationModal('fold');">
           <button class="button button-dark button-block button-outline">Fold</button>
         </div>
       </div>
-      <div class="row" ng-if="!hasTurn">
+      
+      <div class="row" >
         <div class="col col-100 text-center">
-          <button class="button button-light button-block" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
-          <button class="button button-royal button-block button-outline" ng-show="showWinner" ui-sref="winner">Show Winner</button>
+          <button class="button button-light button-block" ng-show="!hasTurn && !showWinner" ng-click="randomCard();">Serve Card</button>
+          <button class="button button-royal button-block button-outline" ng-disabled="!showWinner" ui-sref="winner">Show Winner</button>
         </div>
       </div>
       <div class="padding-vertical">
