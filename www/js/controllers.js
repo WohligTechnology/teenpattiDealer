@@ -92,7 +92,10 @@ angular.module('starter.controllers', [])
     $scope.randomCard = function () {
       apiService.randomCard();
     };
-
+     
+    $scope.sideShow = function(){
+       apiService.sideShow(function(data){});
+    }
     updateSocketFunction = function (data) {
       console.log(data);
       $scope.communityCards = data.communityCards;
@@ -188,6 +191,12 @@ angular.module('starter.controllers', [])
     $scope.raise = function () {
       apiService.raise(function (data) {});
     };
+
+    $scope.makeSeen = function () {
+      
+      apiService.makeSeen(function (data) {});
+    };
+
     $scope.move = function () {
       apiService.move(function (data) {});
     };

@@ -94,6 +94,16 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
             $http.post(adminurl + 'Setting/store', data).then(function (data) {
                 callback(data.data);
             });
+        },
+        makeSeen: function(callback){
+            $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
+                callback(data.data);
+            });
+        },
+        sideShow: function(){
+            $http.post(adminurl + 'Player/sideShow',{}).then(function (data) {
+                callback(data.data);
+            });;
         }
     };
 });

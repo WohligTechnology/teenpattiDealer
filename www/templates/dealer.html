@@ -12,16 +12,14 @@
 
       <div class="row" ng-if="hasTurn ">
         
-        <div class="col col-25 text-center" ng-click="move();" ng-if="isCheck">
-          <button class="button button-dark button-block button-outline">Check</button>
+        
+        <div class="col col-25 text-center" ng-click="sideShow();" >
+          <button class="button button-dark button-block button-outline">Side Show</button>
         </div>
-        <div class="col col-25 text-center" ng-click="move();" >
-          <button class="button button-dark button-block button-outline">Slide Show</button>
-        </div>
-        <div class="col col-25 text-center" ng-click="move();" ng-if="!isCheck">
+        <div class="col col-25 text-center" ng-click="makeSeen();" >
           <button class="button button-dark button-block button-outline">Seen</button>
         </div> 
-        <div class="col col-25 text-center" ng-click="move();" ng-if="!isCheck">
+        <div class="col col-25 text-center" ng-click="move();" >
           <button class="button button-dark button-block button-outline">Chal</button>
         </div>
         <div class="col col-25 text-center" ng-click="showConfirmationModal('fold');">
