@@ -98,7 +98,11 @@ angular.module('starter.controllers', [])
     }
     updateSocketFunction = function (data) {
       console.log(data);
+      $scope.turnPlayer = _.find(data.playerCards, function (player) {
+        return player.isTurn;
+      });
       $scope.communityCards = data.communityCards;
+      $scope.gameType = data.currentGameType;      
       $scope.playersChunk = _.chunk(data.playerCards, 4);
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
@@ -120,12 +124,16 @@ angular.module('starter.controllers', [])
         var dealerIndex = _.findIndex(data.data.data.playerCards, function (player) {
           return player.isDealer;
         });
+        $scope.turnPlayer = _.find(data.data.data.playerCards, function (player) {
+          return player.isTurn;
+        });
         if (dealerIndex < 0) {
           // $scope.noDealer = true;
           $state.go("table");
         }
 
         $scope.communityCards = data.data.data.communityCards;
+        $scope.gameType = data.data.data.currentGameType;     
         $scope.playersChunk = _.chunk(data.data.data.playerCards, 4);
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
@@ -244,7 +252,10 @@ angular.module('starter.controllers', [])
       });
     };
 
-
+    $scope.makeGameType = function(data){
+        apiService.makeGameType(data, function(){});
+    };
+    
     $scope.newGame();
 
     $scope.updatePlayers = function () {
@@ -296,8 +307,20 @@ angular.module('starter.controllers', [])
     apiService.getSettings(function (data) {
       $scope.settings = data.data.results;
     });
-    $scope.storeSetting = function () {
+    apiService.getGameType(function(data){
+      $scope.gameType = data.data.results;
+
+      var gameSelected = _.find($scope.gameType, function(data){
+         return data.currentType;
+      }); 
+      $scope.gameSelected = gameSelected._id;
+      console.log($scope.gameSelected);
+    });
+    $scope.storeSetting = function (data) {
       apiService.storeSettings($scope.settings, function () {});
+      var fData = {};
+      fData._id = data;
+      apiService.makeGameType(fData, function () {});
     };
   })
 

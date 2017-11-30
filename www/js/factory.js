@@ -100,10 +100,20 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data.data);
             });
         },
-        sideShow: function(){
+        sideShow: function(callback){
             $http.post(adminurl + 'Player/sideShow',{}).then(function (data) {
                 callback(data.data);
-            });;
+            });
+        },
+        getGameType: function(callback){
+            $http.post(adminurl + 'GameType/search',{}).then(function (data) {
+                callback(data.data);
+            });
+        },
+        makeGameType:function(data, callback){
+            $http.post(adminurl + 'GameType/makeCurrentType',data).then(function (data) {
+                callback(data.data);
+            });
         }
     };
 });

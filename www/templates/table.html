@@ -39,11 +39,23 @@
 
             <div class="col col-33">
                 <div class="list">
-                    <label class="item item-input" ng-repeat="setting in settings">
+                    <label class="item item-input" ng-repeat="setting in settings" ng-if="setting.visible">
                         <span class="input-label">{{setting.name}}</span>
                         <input type="text" ng-model="setting.value" class="setting-input">
                     </label>
-                    <button class="button button-energized button-block button-outline button-small" ng-click="storeSetting();">Save</button>
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                          Type of Teen Patti
+                        </div>
+                        <select ng-model="gameSelected" >
+                            <option ng-repeat="gt in gameType" value="{{gt._id}}" >{{gt.name}}</option>
+                          <!-- <option selected>Normal</option>
+                          <option>Lowest</option>
+                          <option>2 Cards</option>
+                          <option>4 Cards</option> -->
+                        </select>
+                      </label>
+                    <button class="button button-energized button-block button-outline button-small" ng-click="storeSetting(gameSelected);">Save</button>
                 </div>
             </div>
         </div>

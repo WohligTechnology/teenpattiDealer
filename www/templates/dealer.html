@@ -4,7 +4,8 @@
     <div class="centerDiv">
       <div class="row" ng-repeat="players in playersChunk">
         <div class="col col-25" ng-repeat="player in players" ng-if="player">
-          <player ng-player="player"></player>
+          <player ng-player="player" ng-game-type = "gameType"></player>
+
         </div>
       </div>
      
@@ -13,10 +14,11 @@
       <div class="row" ng-if="hasTurn ">
         
         
-        <div class="col col-25 text-center" ng-click="sideShow();" >
+        <div class="col col-25 text-center" ng-click="sideShow();" ng-if="!showWinner">
           <button class="button button-dark button-block button-outline">Side Show</button>
         </div>
-        <div class="col col-25 text-center" ng-click="makeSeen();" >
+        
+        <div class="col col-25 text-center" ng-click="makeSeen();" ng-if="turnPlayer.isBlind" >
           <button class="button button-dark button-block button-outline">Seen</button>
         </div> 
         <div class="col col-25 text-center" ng-click="move();" >
@@ -39,12 +41,14 @@
           </div>
           <div class="col col-25 text-center">
           </div>
+          <div class="col col-25 text-center">
+          </div>
           <div class="col col-25 text-center" ng-click="showConfirmationModal('newGame');">
             <button class="button button-assertive button-block button-outline">New</button>
           </div>
-          <div class="col col-25 text-center" ng-click="showConfirmationModal('undo');">
+          <!-- <div class="col col-25 text-center" ng-click="showConfirmationModal('undo');">
             <button class="button button-assertive button-block  button-outline">Undo</button>
-          </div>
+          </div> -->
         </div>
       </div>
 

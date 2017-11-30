@@ -21,16 +21,20 @@
           <div class="list">
             <a class="item result-item" ng-repeat="player in players|orderBy:'winRank'" ng-class="{'winner-section':player.winner}">
               <div class="row">
-                <div class="col col-20">
+                <div class="col col-20" >
                   <card card='{{player.cards[0]}}' ng-style="style" width="60" height="80"> </card>
                 </div>
                 <div class="col col-20">
                   <card card='{{player.cards[1]}}' ng-style="style" width="60" height="80"> </card>
                 </div>
-                <div class="col col-20">
+                <div class="col col-20" ng-if="player.cards[2]">
                   <card card='{{player.cards[2]}}' ng-style="style" width="60" height="80"> </card>
                 </div>
-                <div class="col col-60">
+                <div class="col col-20" ng-if="player.cards[3]">
+                    <card card='{{player.cards[3]}}' ng-style="style" width="60" height="80"> </card>
+                  </div>
+                  
+                <div class="col col-40">
                   <h2>Player
                     <span class="big-font">{{player.playerNo}}</span>
                   </h2>

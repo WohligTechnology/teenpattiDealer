@@ -78,7 +78,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       restrict: 'E',
       replace: false,
       scope: {
-        player: "=ngPlayer"
+        player: "=ngPlayer",
+        gameType: "=ngGameType"
       },
       templateUrl: '/templates/directive/player.html',
       link: function ($scope, element, attr) {}
