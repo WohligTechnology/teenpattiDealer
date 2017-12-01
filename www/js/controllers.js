@@ -92,17 +92,21 @@ angular.module('starter.controllers', [])
     $scope.randomCard = function () {
       apiService.randomCard();
     };
-     
-    $scope.sideShow = function(){
-       apiService.sideShow(function(data){});
+
+    $scope.sideShow = function () {
+      apiService.sideShow(function (data) {});
     }
+
+   
     updateSocketFunction = function (data) {
       console.log(data);
       $scope.turnPlayer = _.find(data.playerCards, function (player) {
         return player.isTurn;
       });
+      //cardServed
+      $scope.cardServed = data.cardServed;
       $scope.communityCards = data.communityCards;
-      $scope.gameType = data.currentGameType;      
+      $scope.gameType = data.currentGameType;
       $scope.playersChunk = _.chunk(data.playerCards, 4);
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
@@ -133,7 +137,8 @@ angular.module('starter.controllers', [])
         }
 
         $scope.communityCards = data.data.data.communityCards;
-        $scope.gameType = data.data.data.currentGameType;     
+        $scope.cardServed = data.data.data.cardServed;
+        $scope.gameType = data.data.data.currentGameType;
         $scope.playersChunk = _.chunk(data.data.data.playerCards, 4);
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
@@ -201,7 +206,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.makeSeen = function () {
-      
+
       apiService.makeSeen(function (data) {});
     };
 
@@ -252,10 +257,10 @@ angular.module('starter.controllers', [])
       });
     };
 
-    $scope.makeGameType = function(data){
-        apiService.makeGameType(data, function(){});
+    $scope.makeGameType = function (data) {
+      apiService.makeGameType(data, function () {});
     };
-    
+
     $scope.newGame();
 
     $scope.updatePlayers = function () {
@@ -307,12 +312,12 @@ angular.module('starter.controllers', [])
     apiService.getSettings(function (data) {
       $scope.settings = data.data.results;
     });
-    apiService.getGameType(function(data){
+    apiService.getGameType(function (data) {
       $scope.gameType = data.data.results;
 
-      var gameSelected = _.find($scope.gameType, function(data){
-         return data.currentType;
-      }); 
+      var gameSelected = _.find($scope.gameType, function (data) {
+        return data.currentType;
+      });
       $scope.gameSelected = gameSelected._id;
       console.log($scope.gameSelected);
     });

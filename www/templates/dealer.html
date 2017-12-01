@@ -14,12 +14,12 @@
       <div class="row" ng-if="hasTurn ">
         
         
-        <div class="col col-25 text-center" ng-click="sideShow();" ng-if="!showWinner">
-          <button class="button button-dark button-block button-outline">Side Show</button>
+        <div class="col col-25 text-center" ng-click="sideShow();" >
+          <button class="button button-dark button-block button-outline" ng-disabled="showWinner">Side Show</button>
         </div>
         
-        <div class="col col-25 text-center" ng-click="makeSeen();" ng-if="turnPlayer.isBlind" >
-          <button class="button button-dark button-block button-outline">Seen</button>
+        <div class="col col-25 text-center" ng-click="makeSeen();"  >
+          <button class="button button-dark button-block button-outline" ng-disabled="!turnPlayer.isBlind">Seen</button>
         </div> 
         <div class="col col-25 text-center" ng-click="move();" >
           <button class="button button-dark button-block button-outline">Chal</button>
@@ -32,7 +32,7 @@
       <div class="row" >
         <div class="col col-100 text-center">
           <button class="button button-light button-block" ng-show="!hasTurn && !showWinner" ng-click="randomCard();">Serve Card</button>
-          <button class="button button-royal button-block button-outline" ng-disabled="!showWinner" ui-sref="winner">Show Winner</button>
+          <button class="button button-royal button-block button-outline" ng-disabled="!cardServed" ui-sref="winner">Show Winner</button>
         </div>
       </div>
       <div class="padding-vertical">
