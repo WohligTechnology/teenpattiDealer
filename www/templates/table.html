@@ -39,7 +39,7 @@
                         <div class="input-label">
                           Type of Teen Patti
                         </div>
-                        <select ng-model="gameSelected" >
+                        <select ng-model="gameSelected" ng-change = "storeSetting(gameSelected);">
                             <option ng-repeat="gt in gameType" value="{{gt._id}}" >{{gt.name}}</option>
                           <!-- <option selected>Normal</option>
                           <option>Lowest</option>
@@ -47,7 +47,7 @@
                           <option>4 Cards</option> -->
                         </select>
                       </label>
-                    <button class="button button-energized button-block button-outline button-small" ng-click="storeSetting(gameSelected);">Save</button>
+                    <!-- <button class="button button-energized button-block button-outline button-small" ng-click="storeSetting(gameSelected);">Save</button> -->
                 </div>
             </div>
         </div>

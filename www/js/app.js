@@ -82,7 +82,25 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         gameType: "=ngGameType"
       },
       templateUrl: '/templates/directive/player.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) {
+        //console.log("Player Loaded");
+      }
+    };
+  })
+  .directive('joker', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      scope: {
+        gameType: "=ngGameType"
+      },
+      templateUrl: '/templates/directive/jokerCard.html',
+      link: function ($scope, element, attr) {
+        $scope.style = {
+          "margin-left": "10px"
+        } 
+      //  console.log("jokerCard Loaded");
+      }
     };
   })
   .directive('community', function () {

@@ -334,6 +334,7 @@ angular.module('starter.controllers', [])
     $scope.showWinner = function () {
       apiService.showWinner(function (data) {
         $scope.players = data.data.data.winners;
+        $scope.gameType = data.data.data.gameType ;
         $scope.winners = _.filter($scope.players, function (player) {
           return player.winner;
         });
