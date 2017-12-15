@@ -2,7 +2,7 @@
     <ion-content class="few-pad">
         <div class="poker-table">
             <div class="row" ng-repeat="players in playersChunk">
-                <div class="col col-25" ng-repeat="player in players">
+                <div class="col" ng-repeat="player in players">
                     <tab ng-player="player" ng-if="player"></tab>
                 </div>
             </div>
@@ -19,17 +19,13 @@
                     </select>
                 </label>
             </div>
-            
             <div class="text-center">
-                <button class="button button-positive button-block" ng-disabled="!dealer.dealerPlayer || !isDealerPlayerInActive(dealer.dealerPlayer) || (activePlayers().length<2)"
+                <button class="button button-positive button-block fnt4-5em btn-pad" ng-disabled="!dealer.dealerPlayer || !isDealerPlayerInActive(dealer.dealerPlayer) || (activePlayers().length<2)"
                     ng-click="makeDealer(dealer.dealerPlayer);">Start</button>
             </div>
         </form>
-
-
         <div class="row" ng-if="settings">
-
-            <div class="col col-33">
+            <div class="col col-50">
                 <div class="list">
                     <label class="item item-input" ng-repeat="setting in settings" ng-if="setting.visible">
                         <span class="input-label">{{setting.name}}</span>
@@ -51,6 +47,28 @@
                 </div>
             </div>
         </div>
+        <!--settings-->
+        <div class="row">
+            <div class="col col-25"></div>
+            <div class="col col-25"></div>
+            <div class="col col-50">
+                <div class="clearfix">
+                    <button class="button button-royal button-outline setting-button " on-tap="toggleSettingShow();">
+                        <i class="ion ion-ios-cog"></i>
+                    </button>
+                </div>
+                <div class="list popup-custom" ng-show="settingShow">
+                    <!--Admin URL                   -->
+                    <label class="item item-input">
+                        <span class="input-label">Admin Url</span>
+                        <input type="text" ng-model="form.adminurl" class="setting-input font-big">
 
+                    </label>
+                    <button class="button button-assertive button-block button-outline button-small fnt-22 text-right" ng-click="saveAdminUrl();">Save Admin URL</button>
+                    <!--End Admin URL                   -->
+                </div>
+            </div>
+        </div>
+        <!--settings-->
     </ion-content>
 </ion-view>

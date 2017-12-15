@@ -3,41 +3,39 @@
 
     <div class="centerDiv">
       <div class="row" ng-repeat="players in playersChunk">
-        <div class="col col-25" ng-repeat="player in players" ng-if="player">
+        <div class="col" ng-repeat="player in players" ng-if="player">
           <player ng-player="player" ng-game-type = "gameType"></player>
-
         </div>
       </div>
-     
 
 
       <div class="row" ng-if="hasTurn ">
         
         
         <div class="col col-25 text-center" ng-click="sideShow();" >
-          <button class="button button-dark button-block button-outline" ng-disabled="showWinner">Side Show</button>
+          <button class="button button-dark button-block button-outline fnt-3em" ng-disabled="showWinner">Side Show</button>
         </div>
         
         <div class="col col-25 text-center" ng-click="makeSeen();"  >
-          <button class="button button-dark button-block button-outline" ng-disabled="!turnPlayer.isBlind">Seen</button>
+          <button class="button button-dark button-block button-outline fnt-3em" ng-disabled="!turnPlayer.isBlind">Seen</button>
         </div> 
         <div class="col col-25 text-center" ng-click="move();" >
-          <button class="button button-dark button-block button-outline">Chal</button>
+          <button class="button button-dark button-block button-outline fnt-3em">Chaal</button>
         </div>
         <div class="col col-25 text-center" ng-click="showConfirmationModal('fold');">
-          <button class="button button-dark button-block button-outline">Fold</button>
+          <button class="button button-dark button-block button-outline fnt-3em">Fold</button>
         </div>
       </div>
       
       <div class="row" >
         <div class="col col-100 text-center">
-          <button class="button button-light button-block" ng-show="!hasTurn && !showWinner" ng-click="randomCard();">Serve Card</button>
-          <button class="button button-royal button-block button-outline" ng-disabled="!cardServed" ui-sref="winner">Show Winner</button>
+          <button class="button button-royal button-block fnt4-5em btn-pad" ng-show="!hasTurn && !showWinner" ng-click="randomCard();">Serve Card</button>
+          <button class="button button-royal button-block button-outline fnt4-5em btn-pad" ng-disabled="!cardServed" ui-sref="winner">Show Winner</button>
         </div>
       </div>
       <div class="padding-vertical">
         <div class="row">
-          <div class="col col-25 text-center">
+          <div class="col col-25">
             
            <joker  ng-game-type = "gameType"></joker>
             
@@ -45,9 +43,10 @@
           <div class="col col-25 text-center">
           </div>
           <div class="col col-25 text-center">
+            <button class="button button-dark button-block button-outline fnt-3em">Undo</button>
           </div>
           <div class="col col-25 text-center" ng-click="showConfirmationModal('newGame');">
-            <button class="button button-assertive button-block button-outline">New</button>
+            <button class="button button-assertive button-block button-outline fnt-3em">New</button>
           </div>
           <!-- <div class="col col-25 text-center" ng-click="showConfirmationModal('undo');">
             <button class="button button-assertive button-block  button-outline">Undo</button>

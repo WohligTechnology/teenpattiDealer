@@ -95,25 +95,31 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data.data);
             });
         },
-        makeSeen: function(callback){
+        makeSeen: function (callback) {
             $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
                 callback(data.data);
             });
         },
-        sideShow: function(callback){
-            $http.post(adminurl + 'Player/sideShow',{}).then(function (data) {
+        sideShow: function (callback) {
+            $http.post(adminurl + 'Player/sideShow', {}).then(function (data) {
                 callback(data.data);
             });
         },
-        getGameType: function(callback){
-            $http.post(adminurl + 'GameType/search',{}).then(function (data) {
+        getGameType: function (callback) {
+            $http.post(adminurl + 'GameType/search', {}).then(function (data) {
                 callback(data.data);
             });
         },
-        makeGameType:function(data, callback){
-            $http.post(adminurl + 'GameType/makeCurrentType',data).then(function (data) {
+        makeGameType: function (data, callback) {
+            $http.post(adminurl + 'GameType/makeCurrentType', data).then(function (data) {
                 callback(data.data);
             });
+        },
+        getAdminUrl: function () {
+            return $.jStorage.get("adminurl");
+        },
+        saveAdminUrl: function (adminurl) {
+            $.jStorage.set("adminurl", adminurl);
         }
     };
 });
