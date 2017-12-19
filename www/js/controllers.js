@@ -344,11 +344,13 @@ angular.module('starter.controllers', [])
   $scope.showWinner = function () {
     apiService.showWinner(function (data) {
       $scope.players = data.data.data.winners;
+      console.log($scope.players);
       $scope.gameType = data.data.data.gameType;
       $scope.winners = _.filter($scope.players, function (player) {
         return player.winner;
       });
       $scope.communityCards = data.data.data.communityCards;
+      console.log($scope.communityCards);
       $scope.winnerString = _.join(_.map($scope.winners, function (n) {
         return "Player " + n.playerNo;
       }), " & ");
