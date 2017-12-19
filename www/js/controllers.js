@@ -190,6 +190,10 @@ angular.module('starter.controllers', [])
         $scope.confirmModalOk = $scope.undo;
         $scope.modelActionFor = "Undo";
         break;
+      case "showWinner":
+        $scope.confirmModalOk = $scope.showWinnerPlayer;
+        $scope.modelActionFor = "Show Winner";
+        break;
     }
     $scope.modal.show();
   };
@@ -214,7 +218,9 @@ angular.module('starter.controllers', [])
     apiService.move(function (data) {});
   };
 
-
+  $scope.showWinnerPlayer = function () {
+    $state.go('winner');
+  };
   // New Game
   $scope.newGame = function () {
     $state.go("table");
