@@ -12,17 +12,13 @@
       <div class="row" ng-if="hasTurn ">
         
         
-        <div class="col col-25 text-center" ng-click="sideShow();" >
+        <div class="col text-center" ng-click="sideShow();" >
           <button class="button button-dark button-block button-outline fnt-3em" ng-disabled="showWinner">Side Show</button>
         </div>
-        
-        <div class="col col-25 text-center" ng-click="makeSeen();"  >
-          <button class="button button-dark button-block button-outline fnt-3em" ng-disabled="!turnPlayer.isBlind">Seen</button>
-        </div> 
-        <div class="col col-25 text-center" ng-click="move();" >
+        <div class="col text-center" ng-click="move();" >
           <button class="button button-dark button-block button-outline fnt-3em">Chaal</button>
         </div>
-        <div class="col col-25 text-center" ng-click="showConfirmationModal('fold');">
+        <div class="col text-center" ng-click="showConfirmationModal('fold');">
           <button class="button button-dark button-block button-outline fnt-3em">Fold</button>
         </div>
       </div>
