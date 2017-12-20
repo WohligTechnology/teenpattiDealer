@@ -355,8 +355,6 @@ angular.module('starter.controllers', [])
       $scope.winners = _.filter($scope.players, function (player) {
         return player.winner;
       });
-      $scope.communityCards = data.data.data.communityCards;
-      console.log($scope.communityCards);
       $scope.winnerString = _.join(_.map($scope.winners, function (n) {
         return "Player " + n.playerNo;
       }), " & ");
