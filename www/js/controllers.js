@@ -338,7 +338,7 @@ angular.module('starter.controllers', [])
   $scope.toggleSettingShow = function () {
     $scope.settingShow = !$scope.settingShow;
   };
-
+  $scope.form.adminurl = apiService.getAdminUrl();
   $scope.saveAdminUrl = function () {
     apiService.saveAdminUrl($scope.form.adminurl);
     window.location.href = window.location.href.split("#")[0];

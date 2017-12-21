@@ -8,8 +8,8 @@
             <!-- <img class="player-dealer"  src="img/dealer.png" alt=""> -->
 
             <div class="player-dealer" ng-if="player.isDealer"> D </div>
-            <div class="player-raised" ng-if="!player.isBlind"> S </div>
-            <div class="player-raised" ng-if="player.isBlind"> B </div>
+            <div class="player-raised player-seen" ng-if="!player.isBlind"> S </div>
+            <div class="player-raised player-blind" ng-if="player.isBlind"> B </div>
             <!-- <div ng-show="p.isFold"></div> -->
         </div>
       

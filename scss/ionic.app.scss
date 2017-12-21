@@ -566,6 +566,9 @@ $dark:                            #444 !default;
     
     .winner-section {
         background: $royal;
+        h2{
+            margin-bottom: 10px;
+        }
         h2,
         h4,
         p {
@@ -647,14 +650,11 @@ $dark:                            #444 !default;
         padding: 9px 9px;
         color: #fff;
         font-size: 2.2em;
+        font-weight: 600;
         &.checked {
             background: $calm;
             border: 1px $calm;
             padding: 15px 8px;
-        }
-        &.called {
-            background: #32245e;
-            border: 1px #32245e;
         }
     }
     
@@ -664,7 +664,13 @@ $dark:                            #444 !default;
         border-color: #000187;
     }
     
-    .player-raised {
+    .player-seen {
+        bottom: 52px;
+        background: #69c400;
+        border: 1px #69c400;
+    }
+    
+    .player-blind {
         bottom: 52px;
         background: $assertive;
         border-color: $assertive;
@@ -693,9 +699,11 @@ $dark:                            #444 !default;
         color: $assertive;
         font-size: 1.2em;
     }
-    .mr2{
+    
+    .mr2 {
         margin-right: 2px;
     }
+    
     .button-custom {
         width: 200px;
     }
