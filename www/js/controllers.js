@@ -93,11 +93,6 @@ angular.module('starter.controllers', [])
     apiService.randomCard();
   };
 
-  $scope.sideShow = function () {
-    apiService.sideShow(function (data) {});
-  }
-
-
   updateSocketFunction = function (data) {
     console.log(data);
     $scope.turnPlayer = _.find(data.playerCards, function (player) {
@@ -154,11 +149,7 @@ angular.module('starter.controllers', [])
   var count = 0;
   var counter = 0;
   $scope.selected = '0-0';
-
   $scope.currentPlayer = 0;
-
-
-
 
   // Modal Actions
   $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
@@ -174,9 +165,9 @@ angular.module('starter.controllers', [])
 
   $scope.showConfirmationModal = function (value) {
     switch (value) {
-      case "allIn":
-        $scope.confirmModalOk = $scope.allIn;
-        $scope.modelActionFor = "All In";
+      case "sideShow":
+        $scope.confirmModalOk = $scope.sideShow;
+        $scope.modelActionFor = "Side Show";
         break;
       case "fold":
         $scope.confirmModalOk = $scope.fold;
@@ -205,9 +196,10 @@ angular.module('starter.controllers', [])
   $scope.fold = function () {
     apiService.fold(function (data) {});
   };
-  $scope.raise = function () {
-    apiService.raise(function (data) {});
-  };
+  $scope.sideShow = function () {
+    apiService.sideShow(function (data) {});
+  }
+
 
   $scope.makeSeen = function () {
 
