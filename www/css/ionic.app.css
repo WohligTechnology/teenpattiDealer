@@ -10253,11 +10253,44 @@ pre {
     font-size: 20px;
     font-weight: bold; }
 
+.modal {
+  background: transparent; }
+
 .modal-sure {
-  text-align: center;
-  padding: 50px 20px; }
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; }
+  .modal-sure.color-assertive {
+    background: #ef473a; }
+  .modal-sure.color-balanced {
+    background: green; }
+  .modal-sure.color-assertive h4, .modal-sure.color-balanced h4 {
+    font-size: 55px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px; }
+  .modal-sure .modal-action-for {
+    color: #ef473a;
+    font-size: 1.2em; }
   .modal-sure h4 {
-    padding: 0 0 20px 0; }
+    font-size: 38px;
+    padding: 10px 0;
+    width: 100%;
+    margin: 0; }
+  .modal-sure .sure-modal {
+    width: 100%; }
+  .modal-sure .fnt-36 {
+    font-size: 36px; }
+  .modal-sure .button.button-balanced, .modal-sure .button.button-assertive {
+    border-width: 0;
+    min-height: 65px;
+    box-shadow: none; }
 
 .col-60 {
   -webkit-box-flex: 0;
