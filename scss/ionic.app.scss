@@ -566,7 +566,7 @@ $dark:                            #444 !default;
     
     .winner-section {
         background: $royal;
-        h2{
+        h2 {
             margin-bottom: 10px;
         }
         h2,
@@ -588,11 +588,65 @@ $dark:                            #444 !default;
         }
     }
     
+    // .modal-sure {
+    //     text-align: center;
+    //     padding: 50px 20px;
+    //     h4 {
+    //         padding: 0 0 20px 0;
+    //     }
+    // }
+    .modal {
+        background: transparent;
+    }
+    
     .modal-sure {
+        background-color: #fff;
+        padding: 40px;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         text-align: center;
-        padding: 50px 20px;
+        &.color-assertive {
+            background: $assertive;
+        }
+        &.color-balanced {
+            background: $balanced;
+        }
+        &.color-assertive,
+        &.color-balanced {
+            h4 {
+                font-size: 55px;
+                color: #fff;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+        }
+        .modal-action-for {
+            color: #ef473a;
+            font-size: 1.2em;
+        }
         h4 {
-            padding: 0 0 20px 0;
+            font-size: 38px;
+            padding: 10px 0;
+            width: 100%;
+            margin: 0;
+        }
+        .sure-modal {
+            width: 100%;
+        }
+        .fnt-36 {
+            font-size: 36px;
+        }
+        .button {
+            &.button-balanced,
+            &.button-assertive {
+                border-width: 0;
+                min-height: 65px;
+                box-shadow: none;
+            }
         }
     }
     

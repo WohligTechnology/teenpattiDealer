@@ -86,20 +86,12 @@ angular.module('starter.controllers', [])
 
 .controller('DealerCtrl', function ($scope, $stateParams, apiService, $state, $timeout, $ionicModal) {
 
-  io.socket.on("ShowWinner", function (data) {
-    console.log("Winner", data);
-  });
+  io.socket.on("ShowWinner", function (data) {});
   $scope.randomCard = function () {
     apiService.randomCard();
   };
 
-  $scope.sideShow = function () {
-    apiService.sideShow(function (data) {});
-  }
-
-
   updateSocketFunction = function (data) {
-    console.log(data);
     $scope.turnPlayer = _.find(data.playerCards, function (player) {
       return player.isTurn;
     });
@@ -113,6 +105,7 @@ angular.module('starter.controllers', [])
     $scope.isCheck = data.isCheck;
     $scope.showWinner = data.showWinner;
     $scope.$apply();
+    $scope.modal3.hide();
   };
 
   io.socket.on("Update", updateSocketFunction);
@@ -151,14 +144,39 @@ angular.module('starter.controllers', [])
     apiService.revealCards(function (data) {});
   };
 
+  io.socket.on("sideShow", function (data) {
+    $scope.modal3.show();
+    $scope.message = {
+        content: "Side show has been requested from Player-" + data.data.fromPlayer.playerNo + " to Player-" + data.data.toPlayer.playerNo,
+        color: "color-balanced"
+      }
+      // $timeout(function () {
+      //   $scope.modal3.hide();
+      // }, 5000);
+  });
+
+  io.socket.on("sideShowCancel", function (data) {
+    $scope.modal3.show();
+    $scope.message = {
+      content: "Side show has been denied !!",
+      color: "color-assertive"
+    }
+    $timeout(function () {
+      $scope.modal3.hide();
+    }, 3000);
+  });
+
+  $ionicModal.fromTemplateUrl('templates/modal/toastr.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal3 = modal;
+  });
+
   var count = 0;
   var counter = 0;
   $scope.selected = '0-0';
-
   $scope.currentPlayer = 0;
-
-
-
 
   // Modal Actions
   $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
@@ -174,9 +192,9 @@ angular.module('starter.controllers', [])
 
   $scope.showConfirmationModal = function (value) {
     switch (value) {
-      case "allIn":
-        $scope.confirmModalOk = $scope.allIn;
-        $scope.modelActionFor = "All In";
+      case "sideShow":
+        $scope.confirmModalOk = $scope.sideShow;
+        $scope.modelActionFor = "Side Show";
         break;
       case "fold":
         $scope.confirmModalOk = $scope.fold;
@@ -205,9 +223,10 @@ angular.module('starter.controllers', [])
   $scope.fold = function () {
     apiService.fold(function (data) {});
   };
-  $scope.raise = function () {
-    apiService.raise(function (data) {});
-  };
+  $scope.sideShow = function () {
+    apiService.sideShow(function (data) {});
+  }
+
 
   $scope.makeSeen = function () {
 
@@ -325,7 +344,6 @@ angular.module('starter.controllers', [])
       return data.currentType;
     });
     $scope.gameSelected = gameSelected._id;
-    console.log($scope.gameSelected);
   });
   $scope.storeSetting = function (data) {
     apiService.storeSettings($scope.settings, function () {});
@@ -333,7 +351,6 @@ angular.module('starter.controllers', [])
     fData._id = data;
     apiService.makeGameType(fData, function () {});
   };
-  console.log("table");
   $scope.settingShow = false;
   $scope.toggleSettingShow = function () {
     $scope.settingShow = !$scope.settingShow;
@@ -350,7 +367,6 @@ angular.module('starter.controllers', [])
   $scope.showWinner = function () {
     apiService.showWinner(function (data) {
       $scope.players = data.data.data.winners;
-      console.log($scope.players);
       $scope.gameType = data.data.data.gameType;
       $scope.winners = _.filter($scope.players, function (player) {
         return player.winner;

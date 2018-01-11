@@ -12,8 +12,8 @@
       <div class="row" ng-if="hasTurn ">
         
         
-        <div class="col text-center" ng-click="sideShow();" >
-          <button class="button button-dark button-block button-outline fnt-3em" ng-disabled="showWinner">Side Show</button>
+        <div class="col text-center">
+          <button class="button button-dark button-block button-outline fnt-3em" ng-click="showConfirmationModal('sideShow');" ng-disabled="showWinner">Side Show</button>
         </div>
         <div class="col text-center" ng-click="move();" >
           <button class="button button-dark button-block button-outline fnt-3em">Chaal</button>
