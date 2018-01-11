@@ -1,7 +1,7 @@
 {
-  "name": "pokerapp",
+  "name": "indianflush",
   "version": "1.1.1",
-  "description": "pokerapp: An Ionic project",
+  "description": "indianflush: An Ionic project",
   "devDependencies": {
     "@ionic/cli-plugin-gulp": "1.1.1",
     "@ionic/cli-plugin-ionic1": "2.1.1",
@@ -11,6 +11,7 @@
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
+    "cordova-android": "^7.0.0",
     "cordova-ios": "^4.4.0",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^1.1.6",
@@ -38,6 +39,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ]
 }
