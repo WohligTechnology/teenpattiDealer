@@ -115,6 +115,16 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data.data);
             });
         },
+        doSideShow: function (callback) {
+            $http.post(adminurl + 'Player/doSideShow').then(function (data) {
+                callback(data);
+            });
+        },
+        cancelSideShow: function (callback) {
+            $http.post(adminurl + 'Player/cancelSideShow').then(function (data) {
+                callback(data);
+            });
+        },
         getAdminUrl: function () {
             return $.jStorage.get("adminurl");
         },

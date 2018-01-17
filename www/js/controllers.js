@@ -104,6 +104,7 @@ angular.module('starter.controllers', [])
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
     $scope.showWinner = data.showWinner;
+    // console.log("data making",data)
     $scope.$apply();
     $scope.modal3.hide();
   };
@@ -147,12 +148,39 @@ angular.module('starter.controllers', [])
   io.socket.on("sideShow", function (data) {
     $scope.modal3.show();
     $scope.message = {
-        content: "Side show has been requested from Player-" + data.data.fromPlayer.playerNo + " to Player-" + data.data.toPlayer.playerNo,
+      content: "Side show has been requested from Player-" + data.data.fromPlayer.playerNo + " to Player-" + data.data.toPlayer.playerNo,
+      color: "color-balanced"
+    }
+    $timeout(function () {
+      $scope.modal3.hide();
+    }, 3000);
+    $timeout(function () {
+      $scope.modal4.show();
+    }, 3000);
+  });
+
+  $scope.confirmModalOkConfirm = function () {
+    apiService.doSideShow(function (data) {});
+  };
+
+  $scope.cancelSideShow = function () {
+    $scope.player.isTurn = true;
+    apiService.cancelSideShow(function (data) {});
+  };
+
+  io.socket.on("sideShow", function (data) {
+    console.log(data.data.toPlayer.playerNo);
+    console.log(selectPlayer.getPlayer());
+    if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal4.show();
+    }
+    if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal3.show();
+      $scope.message = {
+        content: "Your request for the Side show has been sent!",
         color: "color-balanced"
       }
-      // $timeout(function () {
-      //   $scope.modal3.hide();
-      // }, 5000);
+    }
   });
 
   io.socket.on("sideShowCancel", function (data) {
@@ -165,6 +193,14 @@ angular.module('starter.controllers', [])
       $scope.modal3.hide();
     }, 3000);
   });
+
+  $ionicModal.fromTemplateUrl('templates/modal/side-show.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal4 = modal;
+  });
+
 
   $ionicModal.fromTemplateUrl('templates/modal/toastr.html', {
     scope: $scope,
@@ -186,8 +222,13 @@ angular.module('starter.controllers', [])
     $scope.modal = modal;
   });
 
+  $scope.cancelSideShow = function () {
+    apiService.cancelSideShow(function (data) {});
+  };
+
   $scope.confirmModalClose = function () {
     $scope.modal.hide();
+    $scope.modal4.hide();
   };
 
   $scope.showConfirmationModal = function (value) {
@@ -229,7 +270,6 @@ angular.module('starter.controllers', [])
 
 
   $scope.makeSeen = function () {
-
     apiService.makeSeen(function (data) {});
   };
 
