@@ -168,21 +168,6 @@ angular.module('starter.controllers', [])
     apiService.cancelSideShow(function (data) {});
   };
 
-  io.socket.on("sideShow", function (data) {
-    console.log(data.data.toPlayer.playerNo);
-    console.log(selectPlayer.getPlayer());
-    if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
-      $scope.modal4.show();
-    }
-    if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
-      $scope.modal3.show();
-      $scope.message = {
-        content: "Your request for the Side show has been sent!",
-        color: "color-balanced"
-      }
-    }
-  });
-
   io.socket.on("sideShowCancel", function (data) {
     $scope.modal3.show();
     $scope.message = {
