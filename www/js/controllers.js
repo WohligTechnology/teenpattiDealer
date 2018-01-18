@@ -107,6 +107,7 @@ angular.module('starter.controllers', [])
     // console.log("data making",data)
     $scope.$apply();
     $scope.modal3.hide();
+    $scope.modal4.hide();
   };
 
   io.socket.on("Update", updateSocketFunction);
