@@ -237,7 +237,7 @@ angular.module('starter.controllers', [])
         break;
       case "showWinner":
         $scope.confirmModalOk = $scope.showWinnerPlayer;
-        $scope.modelActionFor = "Show Winner";
+        $scope.modelActionFor = "Show";
         break;
     }
     $scope.modal.show();
