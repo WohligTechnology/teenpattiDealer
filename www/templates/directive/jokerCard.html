@@ -10,3 +10,20 @@
         <card class="community-card" card='NONE' ng-style="style"> </card>
     </div>
 </div>
+
+<div ng-if="gameType.name == 'Zandu'">
+    <div class="padding-horizontal">
+        <h3 class="label-item">Joker Cards</h3>
+    </div>
+    <div class="row">
+        <div class="col" ng-repeat="jC in gameType.jokerCards">
+            <div class="text-center" ng-show="jC.status">
+                <card class='community-card' class="" card='{{jC.card}}' ng-style="style"> </card>
+            </div>
+            <div class="text-center" ng-hide="jC.status">
+                <card class="community-card" card='NONE' ng-style="style"> </card>
+            </div>
+        </div>
+    </div>
+
+</div>

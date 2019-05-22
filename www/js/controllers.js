@@ -119,7 +119,6 @@ angular.module('starter.controllers', [])
   $scope.updatePlayers = function () {
     apiService.getAll(function (data) {
       // check whether dealer is selected or not
-
       var dealerIndex = _.findIndex(data.data.data.playerCards, function (player) {
         return player.isDealer;
       });
@@ -138,6 +137,12 @@ angular.module('starter.controllers', [])
       $scope.hasTurn = data.data.data.hasTurn;
       $scope.isCheck = data.data.data.isCheck;
       $scope.showWinner = data.data.data.showWinner;
+    });
+  };
+
+  $scope.showJokerCards = function () {
+    apiService.enableOneZanduCard(function (data) {
+      $scope.gameType.jokerCards = data.data.data;
     });
   };
 
@@ -299,7 +304,8 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('TableCtrl', function ($scope, $stateParams, apiService, $state) {
+.controller('TableCtrl', function ($scope, $stateParams, apiService, $state, $ionicPopup) {
+  $scope.jokerText = 'Joker enabling amount';
   io.socket.off("Update", updateSocketFunction);
   $scope.newGame = function () {
     $scope.winnerData = {};
@@ -357,6 +363,22 @@ angular.module('starter.controllers', [])
   };
   $scope.form = {
     isStraddle: false
+  };
+
+  apiService.getZanduCardEnablingAmount(function (data) {
+    $scope.jokerAmount = data.data.data;
+  });
+
+  $scope.saveJokerAmount = function (data) {
+    apiService.saveZanduCardEnablingAmount(data, function (err, data) {
+      if (data) $scope.jokerAmount = data.data.data;
+      if (err) {
+        $ionicPopup.alert({
+          title: 'Error',
+          template: 'Please check the amount you have entered'
+        });
+      }
+    });
   };
 
   //Settings

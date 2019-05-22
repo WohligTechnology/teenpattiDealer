@@ -10461,3 +10461,11 @@ pre {
 
 span.light-grey {
   color: #e2cf00; }
+
+.button-custom-block {
+  display: block;
+  width: 100%;
+  font-size: 2em !important; }
+
+.item-stacked-label .input-label, .item-stacked-label .icon {
+  padding: 4px 0 6px 0px; }

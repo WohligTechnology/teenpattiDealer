@@ -1,0 +1,12 @@
+{
+  "name": "cardsJS",
+  "_cacheHeaders": {
+    "ETag": "W/\"8c06a90d9fcfba5a46531a07fd0430ac\"",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"8c06a90",
+  "main": "index",
+  "_source": "https://github.com/richardschneider/cardsJS",
+  "_target": "*",
+  "_originalSource": "https://github.com/richardschneider/cardsJS"
+}

@@ -125,6 +125,23 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data);
             });
         },
+        saveZanduCardEnablingAmount: function (data, callback) {
+            $http.post(adminurl + 'GameType/saveZanduCardEnablingAmount', data).then(function (data) {
+                callback(null, data);
+            }, function (err) {
+                callback(err);
+            });
+        },
+        getZanduCardEnablingAmount: function (callback) {
+            $http.get(adminurl + 'GameType/getZanduCardEnablingAmount').then(function (data) {
+                callback(data);
+            });
+        },
+        enableOneZanduCard: function (callback) {
+            $http.get(adminurl + 'GameType/enableOneZanduCard').then(function (data) {
+                callback(data);
+            });
+        },
         getAdminUrl: function () {
             return $.jStorage.get("adminurl");
         },

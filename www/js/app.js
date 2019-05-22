@@ -92,7 +92,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       restrict: 'E',
       replace: false,
       scope: {
-        gameType: "=ngGameType"
+        gameType: "=ngGameType",
+        showCard: "=showCard"
       },
       templateUrl: 'templates/directive/jokerCard.html',
       link: function ($scope, element, attr) {
