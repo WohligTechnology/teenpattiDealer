@@ -8,29 +8,45 @@
       </div>
       <div class="row" ng-if="hasTurn ">
         <div class="col text-center">
-          <button class="button button-dark button-block button-outline fnt-3em" ng-click="showConfirmationModal('sideShow');" ng-disabled="showWinner">
+          <button
+            class="button button-dark button-block button-outline fnt-3em"
+            ng-click="showConfirmationModal('sideShow');"
+            ng-disabled="showWinner"
+          >
             Side Show
-            </button>
+          </button>
         </div>
         <div class="col text-center" ng-click="move();">
-          <button class="button button-dark button-block button-outline fnt-3em">
+          <button
+            class="button button-dark button-block button-outline fnt-3em"
+          >
             Chaal
-            </button>
+          </button>
         </div>
         <div class="col text-center" ng-click="showConfirmationModal('fold');">
-          <button class="button button-dark button-block button-outline fnt-3em">
+          <button
+            class="button button-dark button-block button-outline fnt-3em"
+          >
             Fold
-            </button>
+          </button>
         </div>
       </div>
       <div class="row">
         <div class="col col-100 text-center">
-          <button class="button button-royal button-block fnt4-5em btn-pad" ng-show="!hasTurn && !showWinner" ng-click="randomCard();">
+          <button
+            class="button button-royal button-block fnt4-5em btn-pad"
+            ng-show="!hasTurn && !showWinner"
+            ng-click="randomCard();"
+          >
             Serve Card
-            </button>
-          <button class="button button-royal button-block button-outline fnt4-5em btn-pad" ng-disabled="!cardServed || !showWinner" ng-click="showConfirmationModal('showWinner');">
+          </button>
+          <button
+            class="button button-royal button-block button-outline fnt4-5em btn-pad"
+            ng-disabled="!cardServed || !showWinner"
+            ng-click="showConfirmationModal('showWinner');"
+          >
             Show
-            </button>
+          </button>
         </div>
       </div>
       <div class="padding-vertical">
@@ -46,27 +62,35 @@
           <div class="col col-50">
             <div class="row">
               <div class="col col-50 text-center">
-                <button class="button button-dark button-block button-outline fnt-3em" ng-click="showConfirmationModal('newGame');">
+                <button
+                  class="button button-dark button-block button-outline fnt-3em"
+                  ng-click="showConfirmationModal('newGame');"
+                >
                   New
                 </button>
               </div>
               <div class="col col-50 text-center">
-                <button class="button button-assertive button-block  button-outline fnt-3em" ng-click="showConfirmationModal('undo');">
+                <button
+                  class="button button-assertive button-block  button-outline fnt-3em"
+                  ng-click="showConfirmationModal('undo');"
+                >
                   Undo
                 </button>
               </div>
             </div>
-           <div class="row">
-             <div class="col">
-               <button class="button button-positive button-block button-outline fnt-3em" ng-click="showJokerCards()"
-                 ng-if="gameType.name == 'Zandu'">
-                 Open Joker Card
-               </button>
-             </div>
-           </div>
+            <div class="row">
+              <div class="col">
+                <button
+                  class="button button-positive button-block button-outline fnt-3em"
+                  ng-click="showConfirmationModal('openJokerCard')"
+                  ng-if="gameType.name == 'Zandu'"
+                >
+                  Open Joker Card
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        
       </div>
     </div>
   </ion-content>

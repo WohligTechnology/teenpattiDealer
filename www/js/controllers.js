@@ -154,6 +154,12 @@ angular
       });
     };
 
+    $scope.openJokerCard = function() {
+      apiService.enableOneZanduCard(function(data) {
+        $scope.gameType.jokerCards = data.data.data;
+      });
+    };
+
     $scope.showJokerCards = function() {
       apiService.enableOneZanduCard(function(data) {
         $scope.gameType.jokerCards = data.data.data;
@@ -266,6 +272,10 @@ angular
         case "showWinner":
           $scope.confirmModalOk = $scope.showWinnerPlayer;
           $scope.modelActionFor = "Show";
+          break;
+        case "openJokerCard":
+          $scope.confirmModalOk = $scope.openJokerCard;
+          $scope.modelActionFor = "Open Joker Card";
           break;
       }
       $scope.modal.show();
