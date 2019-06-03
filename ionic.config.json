@@ -13,6 +13,5 @@
   ],
   "gulp": {
     "enabled": false
-  },
-  "app_id": ""
+  }
 }
