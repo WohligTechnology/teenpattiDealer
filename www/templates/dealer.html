@@ -40,6 +40,16 @@
           >
             Serve Card
           </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-50">
+          <div class="gametype text-center text-uppercase assertive padding">
+            {{ gameType.name }}
+          </div>
+        </div>
+
+        <div class="col col-50 text-center">
           <button
             class="button button-royal button-block button-outline fnt4-5em btn-pad"
             ng-disabled="!cardServed || !showWinner"
