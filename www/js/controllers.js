@@ -183,10 +183,10 @@ angular
       };
       $timeout(function() {
         $scope.modal3.hide();
-      }, 3000);
+      }, 2000);
       $timeout(function() {
         $scope.modal4.show();
-      }, 3000);
+      }, 2000);
     });
 
     $scope.confirmModalOkConfirm = function() {
@@ -206,7 +206,7 @@ angular
       };
       $timeout(function() {
         $scope.modal3.hide();
-      }, 3000);
+      }, 2000);
     });
 
     $ionicModal
