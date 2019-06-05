@@ -65,7 +65,7 @@
           </button>
         </div>
       </div>
-      <div class="padding-vertical">
+      <div>
         <div class="row">
           <div class="col col-50">
             <joker ng-game-type="gameType"></joker>
@@ -76,35 +76,35 @@
             <button class="button button-dark button-block button-outline fnt-3em">Undo</button>
           </div>-->
           <div class="col col-50">
-            <div class="row">
-              <div class="col col-50 text-center">
-                <button
-                  class="button button-dark button-block button-outline fnt-3em"
-                  ng-click="showConfirmationModal('newGame');"
-                >
-                  New
-                </button>
-              </div>
-              <div class="col col-50 text-center">
+            <!-- <div class="row"> -->
+            <!-- <div class="col text-center"> -->
+            <button
+              class="button button-dark button-block button-outline fnt-3em"
+              ng-click="showConfirmationModal('newGame');"
+            >
+              New
+            </button>
+            <!-- </div> -->
+            <!-- <div class="col col-50 text-center">
                 <button
                   class="button button-assertive button-block  button-outline fnt-3em"
                   ng-click="showConfirmationModal('undo');"
                 >
                   Undo
                 </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <button
-                  class="button button-positive button-block button-outline fnt-3em"
-                  ng-click="showConfirmationModal('openJokerCard')"
-                  ng-if="gameType.name == 'Zandu'"
-                >
-                  Open Joker Card
-                </button>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div>
+          <div class="row">
+            <div class="col"> -->
+            <button
+              class="button button-positive button-block button-outline fnt-3em"
+              ng-click="showConfirmationModal('openJokerCard')"
+              ng-if="gameType.name == 'Zandu'"
+            >
+              Open Joker Card
+            </button>
+            <!-- </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
