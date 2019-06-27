@@ -139,9 +139,28 @@ myApp.factory("apiService", function($http, $q, $timeout) {
         }
       );
     },
+    saveFlipperCardEnablingAmount: function(data, callback) {
+      $http
+        .post(adminurl + "GameType/saveFlipperCardEnablingAmount", data)
+        .then(
+          function(data) {
+            callback(null, data);
+          },
+          function(err) {
+            callback(err);
+          }
+        );
+    },
     getZanduCardEnablingAmount: function(callback) {
       $http
         .get(adminurl + "GameType/getZanduCardEnablingAmount")
+        .then(function(data) {
+          callback(data);
+        });
+    },
+    getFlipperCardEnablingAmount: function(callback) {
+      $http
+        .get(adminurl + "GameType/getFlipperCardEnablingAmount")
         .then(function(data) {
           callback(data);
         });

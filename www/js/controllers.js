@@ -424,9 +424,23 @@ angular
     apiService.getZanduCardEnablingAmount(function(data) {
       $scope.jokerAmount = data.data.data;
     });
+    apiService.getFlipperCardEnablingAmount(function(data) {
+      $scope.jokerAmountFlipper = data.data.data;
+    });
 
     $scope.saveJokerAmount = function(data) {
       apiService.saveZanduCardEnablingAmount(data, function(err, data) {
+        if (data) $scope.jokerAmount = data.data.data;
+        if (err) {
+          $ionicPopup.alert({
+            title: "Error",
+            template: "Please check the amount you have entered"
+          });
+        }
+      });
+    };
+    $scope.saveJokerAmountFlipper = function(data) {
+      apiService.saveFlipperCardEnablingAmount(data, function(err, data) {
         if (data) $scope.jokerAmount = data.data.data;
         if (err) {
           $ionicPopup.alert({
