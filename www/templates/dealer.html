@@ -33,19 +33,19 @@
       </div>
       <div class="row">
         <div class="col col-100 text-center">
-          <!-- <button
+          <button
             class="button button-royal button-block fnt4-5em btn-pad"
             ng-show="!hasTurn && !showWinner"
             ng-click="randomCard();"
           >
-            Serve Card Dev
-          </button> -->
-          <button
+            Serve Card
+          </button>
+          <!-- <button
             class="button button-royal button-block fnt4-5em btn-pad"
             ng-show="!hasTurn && !showWinner"
           >
             Serve Card
-          </button>
+          </button> -->
         </div>
       </div>
       <div class="row">
@@ -100,6 +100,13 @@
               class="button button-positive button-block button-outline fnt-3em"
               ng-click="showConfirmationModal('openJokerCard')"
               ng-if="gameType.name == 'Zandu'"
+            >
+              Open Joker Card
+            </button>
+            <button
+              class="button button-positive button-block button-outline fnt-3em"
+              ng-click="showConfirmationModal('openJokerCardFlipper')"
+              ng-if="gameType.name == 'Flipper'"
             >
               Open Joker Card
             </button>
