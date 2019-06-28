@@ -98,6 +98,7 @@
             <div class="col"> -->
             <button
               class="button button-positive button-block button-outline fnt-3em"
+              ng-disable="gameType.jokerCards.length < 3"
               ng-click="showConfirmationModal('openJokerCard')"
               ng-if="gameType.name == 'Zandu'"
             >
@@ -106,6 +107,7 @@
             <button
               class="button button-positive button-block button-outline fnt-3em"
               ng-click="showConfirmationModal('openJokerCardFlipper')"
+              ng-disabled="gameType.jokerCards.length < 4"
               ng-if="gameType.name == 'Flipper'"
             >
               Open Joker Card
