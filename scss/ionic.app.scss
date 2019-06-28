@@ -603,12 +603,17 @@ pre {
   background-color: #fff;
   padding: 40px;
   display: flex;
-  width: 100%;
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   &.color-assertive {
     background: $assertive;
   }
@@ -897,5 +902,22 @@ span.light-grey {
   &.button.button-block,
   &.button.button-full {
     margin: 0;
+  }
+}
+
+.show-page {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  &:before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
   }
 }
