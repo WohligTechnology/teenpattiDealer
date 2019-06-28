@@ -10481,3 +10481,6 @@ span.light-grey {
   line-height: 100%;
   text-transform: uppercase;
   font-weight: 600; }
+
+.pull-right {
+  float: right; }

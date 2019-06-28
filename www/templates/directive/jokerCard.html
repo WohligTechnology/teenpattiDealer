@@ -18,7 +18,7 @@
 <div ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'  ">
   <div class="display-inline">
     <div class="padding-horizontal">
-      <h3 class="label-item">Joker Cards</h3>
+      <h4 class="label-item">Joker Cards</h4>
     </div>
     <div class="text-center" ng-show="gameType.jokerCards[0].status">
       <card
@@ -59,12 +59,12 @@
     </div>
   </div>
   <div class="display-inline">
-    <h3
+    <h4
       class="label-item padding-horizontal pull-right"
       ng-if="gameType.jokerCards.length==4"
     >
-      Permanent Cards
-    </h3>
+      Permanent Joker
+    </h4>
     <div class="text-center" ng-show="gameType.jokerCards[3].status">
       <card
         class="community-card"
