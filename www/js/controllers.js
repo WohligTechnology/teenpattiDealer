@@ -188,10 +188,10 @@ angular
       };
       $timeout(function() {
         $scope.modal3.hide();
-      }, 2000);
+      }, 1000);
       $timeout(function() {
         $scope.modal4.show();
-      }, 2000);
+      }, 1000);
     });
 
     $scope.confirmModalOkConfirm = function() {
