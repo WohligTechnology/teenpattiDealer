@@ -883,7 +883,7 @@ span.light-grey {
 }
 
 .gametype {
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 4rem;
   line-height: 100%;
   text-transform: uppercase;
@@ -892,4 +892,10 @@ span.light-grey {
 
 .pull-right {
   float: right;
+}
+.m-0 {
+  &.button.button-block,
+  &.button.button-full {
+    margin: 0;
+  }
 }

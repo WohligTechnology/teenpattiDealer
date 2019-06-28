@@ -15,24 +15,29 @@
   </div>
 </div>
 
-<div ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'  ">
+<div
+  ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'  "
+  class="rel"
+>
   <div class="display-inline">
     <div class="padding-horizontal">
       <h4 class="label-item">Joker Cards</h4>
     </div>
-    <div class="text-center" ng-show="gameType.jokerCards[0].status">
-      <card
-        class="community-card"
-        card="{{ gameType.jokerCards[0].card }}"
-        ng-style="style"
-      >
-      </card>
-    </div>
-    <div class="text-center" ng-hide="gameType.jokerCards[1].status">
-      <card class="community-card" card="DONE" ng-style="style"> </card>
+    <div ng-if="gameType.jokerCards[0]">
+      <div class="text-center" ng-show="gameType.jokerCards[0].status">
+        <card
+          class="community-card"
+          card="{{ gameType.jokerCards[0].card }}"
+          ng-style="style"
+        >
+        </card>
+      </div>
+      <div class="text-center" ng-hide="gameType.jokerCards[0].status">
+        <card class="community-card" card="DONE" ng-style="style"> </card>
+      </div>
     </div>
   </div>
-  <div class="display-inline">
+  <div class="display-inline" ng-if="gameType.jokerCards[1]">
     <div class="text-center" ng-show="gameType.jokerCards[1].status">
       <card
         class="community-card"
@@ -41,11 +46,11 @@
       >
       </card>
     </div>
-    <div class="text-center" ng-hide="gameType.jokerCards[2].status">
+    <div class="text-center" ng-hide="gameType.jokerCards[1].status">
       <card class="community-card" card="DONE" ng-style="style"> </card>
     </div>
   </div>
-  <div class="display-inline">
+  <div class="display-inline" ng-if="gameType.jokerCards[2]">
     <div class="text-center" ng-show="gameType.jokerCards[2].status">
       <card
         class="community-card"
@@ -54,11 +59,11 @@
       >
       </card>
     </div>
-    <div class="text-center" ng-hide="gameType.jokerCards[3].status">
+    <div class="text-center" ng-hide="gameType.jokerCards[2].status">
       <card class="community-card" card="DONE" ng-style="style"> </card>
     </div>
   </div>
-  <div class="display-inline">
+  <div class="display-inline" ng-if="gameType.jokerCards[3]">
     <h4
       class="label-item padding-horizontal pull-right"
       ng-if="gameType.jokerCards.length==4"
@@ -73,7 +78,7 @@
       >
       </card>
     </div>
-    <div class="text-center" ng-hide="gameType.jokerCards[0].status">
+    <div class="text-center" ng-hide="gameType.jokerCards[3].status">
       <card class="community-card" card="DONE" ng-style="style"> </card>
     </div>
   </div>
