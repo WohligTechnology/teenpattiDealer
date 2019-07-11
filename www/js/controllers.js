@@ -116,6 +116,14 @@ angular
       $scope.hasTurn = data.hasTurn;
       $scope.isCheck = data.isCheck;
       $scope.showWinner = data.showWinner;
+      $scope.activePlayers = function() {
+        var players = _.flatten($scope.playersChunk);
+        return _.filter(players, function(player) {
+          return player.isActive;
+        });
+      };
+      console.log($scope.players);
+      $scope.activePlayers();
       // console.log("data making",data)
       $scope.$apply();
       $scope.modal3.hide();
@@ -151,6 +159,14 @@ angular
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
         $scope.showWinner = data.data.data.showWinner;
+        $scope.activePlayers = function() {
+          var players = _.flatten($scope.playersChunk);
+          return _.filter(players, function(player) {
+            return player.isActive;
+          });
+        };
+        console.log(players);
+        $scope.activePlayers();
       });
     };
 
@@ -224,6 +240,15 @@ angular
       });
 
     $ionicModal
+      .fromTemplateUrl("templates/modal/side-show-select.html", {
+        scope: $scope,
+        animation: "slide-in-up"
+      })
+      .then(function(modal) {
+        $scope.modal5 = modal;
+      });
+
+    $ionicModal
       .fromTemplateUrl("templates/modal/toastr.html", {
         scope: $scope,
         animation: "slide-in-up"
@@ -254,6 +279,10 @@ angular
     $scope.confirmModalClose = function() {
       $scope.modal.hide();
       $scope.modal4.hide();
+      $scope.modal5.hide();
+    };
+    $scope.sideshowSelectModalClose = function() {
+      $scope.modal5.hide();
     };
 
     $scope.showConfirmationModal = function(value) {
@@ -297,8 +326,12 @@ angular
     $scope.fold = function() {
       apiService.fold(function(data) {});
     };
+
     $scope.sideShow = function() {
       apiService.sideShow(function(data) {});
+    };
+    $scope.sideShowSelect = function() {
+      $scope.modal5.show();
     };
 
     $scope.makeSeen = function() {
@@ -405,7 +438,6 @@ angular
         return player.isActive;
       });
     };
-
     $scope.isDealerPlayerInActive = function(dealerPlayer) {
       var players = _.flatten($scope.playersChunk);
       var dealerPlayerIndex = _.findIndex(players, function(player) {

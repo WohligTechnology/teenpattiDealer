@@ -10510,3 +10510,11 @@ span.light-grey {
 
 .scroll {
   min-height: 100vh; }
+
+.selected-player {
+  font-size: 55px;
+  line-height: 100%; }
+
+.select-player select {
+  min-width: 100%;
+  font-size: 55px; }

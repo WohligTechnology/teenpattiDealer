@@ -10,9 +10,10 @@
         <div class="col text-center">
           <button
             class="button button-dark button-block button-outline fnt-3em"
-            ng-click="sideShow();"
+            ng-click="sideShowSelect();"
             ng-disabled="showWinner"
           >
+            <pre>{{ activePlayers }}</pre>
             Side Show
           </button>
         </div>
@@ -33,18 +34,18 @@
       </div>
       <div class="row" ng-show="!hasTurn && !showWinner">
         <div class="col col-100 text-center">
-          <!-- <button
+          <button
             class="button button-royal button-block fnt4-5em btn-pad"
             ng-click="randomCard();"
           >
             Serve Card dev
-          </button> -->
-          <button
+          </button>
+          <!-- <button
             class="button button-royal button-block fnt4-5em btn-pad"
             ng-show="!hasTurn && !showWinner"
           >
             Serve Card
-          </button>
+          </button> -->
         </div>
       </div>
       <div class="row">
