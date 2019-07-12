@@ -331,6 +331,9 @@ angular
     $scope.winnerSelectModal = function() {
       $scope.modal6.show();
     };
+    $scope.winnerSelectModalClose = function() {
+      $scope.modal6.hide();
+    };
     // Turn Actions
     $scope.allIn = function() {
       apiService.allIn(function(data) {});
