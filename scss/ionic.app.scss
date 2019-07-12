@@ -614,6 +614,17 @@ pre {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  &.winner-select-modal {
+    width: 80%;
+    .fnt-8em {
+      font-size: 4rem !important;
+    }
+    .button.button-block.btn-start,
+    .button.button-full.btn-start {
+      padding: 0px 10px;
+      min-height: 110px;
+    }
+  }
   &.color-assertive {
     background: $assertive;
   }

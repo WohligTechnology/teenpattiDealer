@@ -4,16 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular
+  .module("starter", ["ionic", "starter.controllers"])
 
-  .run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
+  .run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
@@ -22,43 +22,42 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $stateProvider
 
-      .state('table', {
-        url: '/table',
-        templateUrl: 'templates/table.html',
-        controller: 'TableCtrl'
+      .state("table", {
+        url: "/table",
+        templateUrl: "templates/table.html",
+        controller: "TableCtrl"
       })
 
-      .state('winner', {
-        url: '/winner',
-        templateUrl: 'templates/winner.html',
-        controller: 'WinnerCtrl'
+      .state("winner", {
+        url: "/winner",
+        templateUrl: "templates/winner.html",
+        controller: "WinnerCtrl"
       })
 
-      .state('dealer', {
-        url: '/dealer',
-        templateUrl: 'templates/dealer.html',
-        controller: 'DealerCtrl'
+      .state("dealer", {
+        url: "/dealer",
+        templateUrl: "templates/dealer.html",
+        controller: "DealerCtrl"
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/table');
+    $urlRouterProvider.otherwise("/table");
   })
 
-
-  .directive('card', function () {
+  .directive("card", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         card: "@",
         width: "@",
         height: "@"
       },
-      templateUrl: 'templates/directive/card.html',
-      link: function ($scope, element, attr) {
+      templateUrl: "templates/directive/card.html",
+      link: function($scope, element, attr) {
         function calc() {
           $scope.style = {
             width: $scope.width + "px",
@@ -67,89 +66,123 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
         }
         calc();
-        $scope.$watch("card", function () {
+        $scope.$watch("card", function() {
           calc();
         });
       }
     };
   })
-  .directive('player', function () {
+  .directive("player", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         player: "=ngPlayer",
         gameType: "=ngGameType"
       },
-      templateUrl: 'templates/directive/player.html',
-      link: function ($scope, element, attr) {
+      templateUrl: "templates/directive/player.html",
+      link: function($scope, element, attr) {
         //console.log("Player Loaded");
       }
     };
   })
-  .directive('joker', function () {
+  .directive("joker", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         gameType: "=ngGameType",
         showCard: "=showCard"
       },
-      templateUrl: 'templates/directive/jokerCard.html',
-      link: function ($scope, element, attr) {
+      templateUrl: "templates/directive/jokerCard.html",
+      link: function($scope, element, attr) {
         $scope.style = {
           "margin-left": "10px"
-        } 
-      //  console.log("jokerCard Loaded");
+        };
+        //  console.log("jokerCard Loaded");
       }
     };
   })
-  .directive('community', function () {
+  .directive("community", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         communityCard: "=ngCommunityCard"
       },
-      templateUrl: 'templates/directive/communityCard.html',
-      link: function ($scope, element, attr) {
-
-      }
+      templateUrl: "templates/directive/communityCard.html",
+      link: function($scope, element, attr) {}
     };
   })
 
-  .directive('winnerPlayer', function () {
+  .directive("winnerPlayer", function() {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
         player: "=ngPlayer",
         method: "="
       },
-      templateUrl: 'templates/directive/winnerPlayer.html',
-      link: function ($scope, element, attr) {}
+      templateUrl: "templates/directive/winnerPlayer.html",
+      link: function($scope, element, attr) {}
     };
   })
 
-  .directive('tab', function (apiService) {
+  .directive("tab", function(apiService) {
     return {
-      restrict: 'E',
+      restrict: "E",
       replace: false,
       scope: {
-        player: "=ngPlayer",
+        player: "=ngPlayer"
       },
-      templateUrl: 'templates/directive/tab.html',
-      link: function ($scope, element, attr) {
-        $scope.makeActive = function (tabId, status) {
+      templateUrl: "templates/directive/tab.html",
+      link: function($scope, element, attr) {
+        $scope.makeActive = function(tabId, status) {
           $scope.player.isActive = status;
           if (status) {
-            apiService.addTab({
-              "tabId": tabId
-            }, function (data) {});
+            apiService.addTab(
+              {
+                tabId: tabId
+              },
+              function(data) {}
+            );
           } else {
-            apiService.removeTab({
-              "tabId": tabId
-            }, function (data) {});
+            apiService.removeTab(
+              {
+                tabId: tabId
+              },
+              function(data) {}
+            );
+          }
+        };
+      }
+    };
+  })
+  .directive("tabWinner", function(apiService) {
+    return {
+      restrict: "E",
+      replace: false,
+      scope: {
+        player: "=ngPlayer"
+      },
+      templateUrl: "templates/directive/tab.html",
+      link: function($scope, element, attr) {
+        $scope.makeActive = function(tabId, status) {
+          $scope.player.isActive = status;
+          if (status) {
+            apiService.addTab(
+              {
+                tabId: tabId
+              },
+              function(data) {}
+            );
+          } else {
+            apiService.removeTab(
+              {
+                tabId: tabId
+              },
+              function(data) {}
+            );
           }
         };
       }

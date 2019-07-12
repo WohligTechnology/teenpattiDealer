@@ -249,6 +249,15 @@ angular
       });
 
     $ionicModal
+      .fromTemplateUrl("templates/modal/winner-select.html", {
+        scope: $scope,
+        animation: "slide-in-up"
+      })
+      .then(function(modal) {
+        $scope.modal6 = modal;
+      });
+
+    $ionicModal
       .fromTemplateUrl("templates/modal/toastr.html", {
         scope: $scope,
         animation: "slide-in-up"
@@ -318,7 +327,10 @@ angular
       }
       $scope.modal.show();
     };
-
+    //winner selesct Modal
+    $scope.winnerSelectModal = function() {
+      $scope.modal6.show();
+    };
     // Turn Actions
     $scope.allIn = function() {
       apiService.allIn(function(data) {});
