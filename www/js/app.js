@@ -37,6 +37,11 @@ angular
         templateUrl: "templates/winner.html",
         controller: "WinnerCtrl"
       })
+      .state("winners", {
+        url: "/winner/:winner1/:winner2",
+        templateUrl: "templates/winner.html",
+        controller: "WinnerCtrl"
+      })
 
       .state("dealer", {
         url: "/dealer",

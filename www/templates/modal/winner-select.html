@@ -1,7 +1,7 @@
 <ion-modal-view class="show-page">
   <ion-content>
     <div class="modal-sure winner-select-modal text-center">
-      <h4>Select the players you want do the Show</h4>
+      <h4>Select the Player to Show</h4>
       <div class="sure-modal">
         <div class="padding-vertical">
           <div class="poker-table">
@@ -18,7 +18,7 @@
             <button
               ng-disabled="numberOfWinnerSelected() != 2"
               class="button button-balanced button-custom button-block fnt-36"
-              ng-click="confirmModalOkConfirm();confirmModalClose('onlyClose');"
+              ng-click="confirmModalOkConfirmForShow();winnerSelectModalClose();"
             >
               Show
             </button>

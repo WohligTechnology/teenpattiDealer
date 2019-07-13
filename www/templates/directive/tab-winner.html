@@ -1,7 +1,11 @@
-<div ng-click="makeShowWinner(player.playerNo,!player.isActive)">
+<div
+  class="winners-box"
+  ng-click="makeShowWinner(player.playerNo,!player.isActive)"
+>
   <button
     class="button button-positive button-block btn-start fnt-8em"
     ng-disabled="!player.isActive || player.isFold"
+    ng-class="{selected:player.showWinner}"
   >
     <span class="holder">
       {{ player.playerNo }}

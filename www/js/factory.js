@@ -48,10 +48,12 @@ myApp.factory("apiService", function($http, $q, $timeout) {
         callback(data);
       });
     },
-    showWinner: function(callback) {
-      $http.post(adminurl + "Player/showWinner").then(function(data) {
-        callback(data);
-      });
+    showWinner: function(callback, winner1, winner2) {
+      $http
+        .post(adminurl + "Player/showWinner", { playerNos: [winner1, winner2] })
+        .then(function(data) {
+          callback(data);
+        });
     },
     allIn: function(callback) {
       $http.post(adminurl + "Player/allIn").then(function(data) {

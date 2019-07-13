@@ -213,7 +213,14 @@ angular
       apiService.doSideShow(player1, player2, function(data) {});
     };
     $scope.confirmModalOkConfirmForShow = function(player1, player2) {
-      $state.go("winner");
+      var players = _.flatten($scope.playersChunk);
+      var playerNos = _.chain(players)
+        .filter(function(player) {
+          return player.showWinner;
+        })
+        .map("playerNo")
+        .value();
+      $state.go("winners", { winner1: playerNos[0], winner2: playerNos[1] });
     };
 
     $scope.cancelSideShow = function() {
@@ -552,21 +559,28 @@ angular
   })
 
   .controller("WinnerCtrl", function($scope, $stateParams, apiService) {
+    if ($stateParams.winner1 && $stateParams.winner2) {
+      $scope.isTwoWinner = true;
+    }
     io.socket.off("Update", updateSocketFunction);
     $scope.showWinner = function() {
-      apiService.showWinner(function(data) {
-        $scope.players = data.data.data.winners;
-        $scope.gameType = data.data.data.gameType;
-        $scope.winners = _.filter($scope.players, function(player) {
-          return player.winner;
-        });
-        $scope.winnerString = _.join(
-          _.map($scope.winners, function(n) {
-            return "Player " + n.playerNo;
-          }),
-          " & "
-        );
-      });
+      apiService.showWinner(
+        function(data) {
+          $scope.players = data.data.data.winners;
+          $scope.gameType = data.data.data.gameType;
+          $scope.winners = _.filter($scope.players, function(player) {
+            return player.winner;
+          });
+          $scope.winnerString = _.join(
+            _.map($scope.winners, function(n) {
+              return "Player " + n.playerNo;
+            }),
+            " & "
+          );
+        },
+        $stateParams.winner1,
+        $stateParams.winner2
+      );
     };
 
     $scope.showWinner();
