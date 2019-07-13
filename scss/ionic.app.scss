@@ -614,6 +614,7 @@ pre {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   &.winner-select-modal {
     width: 80%;
     .fnt-8em {
@@ -623,6 +624,13 @@ pre {
     .button.button-full.btn-start {
       padding: 0px 10px;
       min-height: 110px;
+      margin: 0;
+      opacity: 0.7;
+      transition: ease all 300ms;
+    }
+    .button.disabled,
+    .button[disabled] {
+      background: #444;
     }
   }
   &.color-assertive {
@@ -948,9 +956,123 @@ span.light-grey {
 }
 
 .winners-box {
-  .winners-box {
-    button {
-      // color: grey;
+  position: relative;
+  .winner-player-selected {
+    position: absolute;
+    width: 100%;
+    bottom: -200px;
+    padding: 2px;
+    background: $balanced;
+    left: 0;
+    color: #fff;
+    font-weight: 700;
+    transition: all ease 1000ms;
+  }
+  &.selected {
+    border-width: 0;
+    .winner-player-selected {
+      bottom: 0px;
+      transition: all ease 1000ms;
+    }
+    .circle-loader,
+    .checkmark {
+      display: block;
+    }
+    .button.button-block.btn-start,
+    .button.button-full.btn-start {
+      opacity: 1;
     }
   }
+}
+
+// Define vars we'll be using
+$loader-size: 2.8em;
+
+$check-height: $loader-size/2;
+$check-width: $check-height/2;
+$check-left: ($loader-size/6 + $loader-size/12);
+$check-thickness: 3px;
+$check-color: #fff;
+.circle-loader {
+  margin-bottom: $loader-size/2;
+  border: 1px solid $balanced;
+  border-left-color: $balanced;
+  background: $balanced;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  width: $loader-size;
+  height: $loader-size;
+  display: none;
+}
+.load-complete {
+  -webkit-animation: none;
+  animation: none;
+  border-color: $check-color;
+  transition: border 500ms ease-out;
+}
+
+.checkmark {
+  display: none;
+
+  &.draw:after {
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+  }
+
+  &:after {
+    opacity: 1;
+    height: $check-height;
+    width: $check-width;
+    transform-origin: left top;
+    border-right: $check-thickness solid $check-color;
+    border-top: $check-thickness solid $check-color;
+    content: "";
+    left: $check-left;
+    top: $check-height;
+    position: absolute;
+  }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: $check-width;
+    opacity: 1;
+  }
+  40% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+  100% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+}
+
+.color-danger {
+  color: $assertive;
+  font-size: 1.8rem;
+  font-weight: 600;
 }

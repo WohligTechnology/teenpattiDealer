@@ -10278,7 +10278,13 @@ pre {
     .modal-sure.winner-select-modal .button.button-block.btn-start,
     .modal-sure.winner-select-modal .button.button-full.btn-start {
       padding: 0px 10px;
-      min-height: 110px; }
+      min-height: 110px;
+      margin: 0;
+      opacity: 0.7;
+      transition: ease all 300ms; }
+    .modal-sure.winner-select-modal .button.disabled,
+    .modal-sure.winner-select-modal .button[disabled] {
+      background: #444; }
   .modal-sure.color-assertive {
     background: #ef473a; }
   .modal-sure.color-balanced {
@@ -10526,3 +10532,96 @@ span.light-grey {
 .select-player select {
   min-width: 100%;
   font-size: 55px; }
+
+.winners-box {
+  position: relative; }
+  .winners-box .winner-player-selected {
+    position: absolute;
+    width: 100%;
+    bottom: -200px;
+    padding: 2px;
+    background: green;
+    left: 0;
+    color: #fff;
+    font-weight: 700;
+    transition: all ease 1000ms; }
+  .winners-box.selected {
+    border-width: 0; }
+    .winners-box.selected .winner-player-selected {
+      bottom: 0px;
+      transition: all ease 1000ms; }
+    .winners-box.selected .circle-loader,
+    .winners-box.selected .checkmark {
+      display: block; }
+    .winners-box.selected .button.button-block.btn-start,
+    .winners-box.selected .button.button-full.btn-start {
+      opacity: 1; }
+
+.circle-loader {
+  margin-bottom: 1.4em;
+  border: 1px solid green;
+  border-left-color: green;
+  background: green;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  width: 2.8em;
+  height: 2.8em;
+  display: none; }
+
+.load-complete {
+  -webkit-animation: none;
+  animation: none;
+  border-color: #fff;
+  transition: border 500ms ease-out; }
+
+.checkmark {
+  display: none; }
+  .checkmark.draw:after {
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg); }
+  .checkmark:after {
+    opacity: 1;
+    height: 1.4em;
+    width: 0.7em;
+    transform-origin: left top;
+    border-right: 3px solid #fff;
+    border-top: 3px solid #fff;
+    content: "";
+    left: 0.7em;
+    top: 1.4em;
+    position: absolute; }
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1; }
+  20% {
+    height: 0;
+    width: 0.7em;
+    opacity: 1; }
+  40% {
+    height: 1.4em;
+    width: 0.7em;
+    opacity: 1; }
+  100% {
+    height: 1.4em;
+    width: 0.7em;
+    opacity: 1; } }
+
+.color-danger {
+  color: #ef473a;
+  font-size: 1.8rem;
+  font-weight: 600; }
