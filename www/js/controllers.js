@@ -408,12 +408,18 @@ angular
 
     $scope.sideShowPlayers = function() {
       var players = _.flatten($scope.playersChunk);
-      console.log("SideShow,", players);
       return _.filter(players, function(player) {
         return player.isActive && !player.isTurn;
       });
     };
     $scope.sideShowObj = { player: null };
+
+    $scope.numberOfWinnerSelected = function() {
+      var players = _.flatten($scope.playersChunk);
+      return _.filter(players, function(player) {
+        return player.showWinner;
+      }).length;
+    };
   })
 
   .controller("TableCtrl", function(

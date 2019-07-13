@@ -165,24 +165,11 @@ angular
       scope: {
         player: "=ngPlayer"
       },
-      templateUrl: "templates/directive/tab.html",
+      templateUrl: "templates/directive/tab-winner.html",
       link: function($scope, element, attr) {
-        $scope.makeActive = function(tabId, status) {
-          $scope.player.isActive = status;
-          if (status) {
-            apiService.addTab(
-              {
-                tabId: tabId
-              },
-              function(data) {}
-            );
-          } else {
-            apiService.removeTab(
-              {
-                tabId: tabId
-              },
-              function(data) {}
-            );
+        $scope.makeShowWinner = function(tabId, status) {
+          if ($scope.player.isActive && !$scope.player.isFold) {
+            $scope.player.showWinner = !$scope.player.showWinner;
           }
         };
       }
