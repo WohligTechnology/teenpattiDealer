@@ -165,7 +165,6 @@ angular
             return player.isActive;
           });
         };
-        console.log(players);
         $scope.activePlayers();
       });
     };
@@ -210,8 +209,8 @@ angular
       }, 1000);
     });
 
-    $scope.confirmModalOkConfirm = function() {
-      apiService.doSideShow(function(data) {});
+    $scope.confirmModalOkConfirm = function(player1, player2) {
+      apiService.doSideShow(player1, player2, function(data) {});
     };
 
     $scope.cancelSideShow = function() {
@@ -397,6 +396,21 @@ angular
         }
       }
     };
+    $scope.turnPlayer = function() {
+      var player = _.flatten($scope.playersChunk);
+      return _.find(players, function(player) {
+        return player.isTurn;
+      });
+    };
+
+    $scope.sideShowPlayers = function() {
+      var players = _.flatten($scope.playersChunk);
+      console.log("SideShow,", players);
+      return _.filter(players, function(player) {
+        return player.isActive && !player.isTurn;
+      });
+    };
+    $scope.sideShowObj = { player: null };
   })
 
   .controller("TableCtrl", function(
@@ -453,6 +467,7 @@ angular
         return player.isActive;
       });
     };
+
     $scope.isDealerPlayerInActive = function(dealerPlayer) {
       var players = _.flatten($scope.playersChunk);
       var dealerPlayerIndex = _.findIndex(players, function(player) {

@@ -1,24 +1,23 @@
 <ion-modal-view class="show-page">
   <ion-content>
     <div class="modal-sure text-center">
-      <h4>Select the player you want do Side Show</h4>
+      <h4>Select Side Show Players</h4>
       <div class="sure-modal">
         <div class="padding-vertical">
           <div class="row">
             <div class="col col-50 text-center">
               <div class="selected-player">
-                9
+                Player {{ turnPlayer.playerNo }}
               </div>
             </div>
             <div class="col col-50 text-center">
               <div class="select-player">
-                <select id="selectedPlayer" ng-model="selected.Player">
-                  <option
-                    ng-repeat="p in activePlayers() track by $index"
-                    value="{{ p.playerNo }}"
-                    >Player {{ p.playerNo }}</option
-                  >
-                </select>
+                <select
+                  id="selectedPlayer"
+                  ng-model="sideShowObj.player"
+                  ng-options="player as  
+                  'Player '+player.playerNo for player in sideShowPlayers()"
+                ></select>
               </div>
             </div>
           </div>
@@ -26,8 +25,9 @@
         <div class="row">
           <div class="col col-50 text-center">
             <button
+              ng-disabled="!sideShowObj.player.playerNo"
               class="button button-balanced button-custom button-block fnt-36"
-              ng-click="confirmModalOkConfirm();confirmModalClose('onlyClose');"
+              ng-click="confirmModalOkConfirm(turnPlayer.playerNo,sideShowObj.player.playerNo);confirmModalClose('onlyClose');"
             >
               Confirm
             </button>

@@ -119,10 +119,12 @@ myApp.factory("apiService", function($http, $q, $timeout) {
           callback(data.data);
         });
     },
-    doSideShow: function(callback) {
-      $http.post(adminurl + "Player/doSideShow").then(function(data) {
-        callback(data);
-      });
+    doSideShow: function(player1, player2, callback) {
+      $http
+        .post(adminurl + "Player/doSideShow", { playerNo: player2 })
+        .then(function(data) {
+          callback(data);
+        });
     },
     cancelSideShow: function(callback) {
       $http.post(adminurl + "Player/cancelSideShow").then(function(data) {

@@ -36,16 +36,10 @@
         <div class="col col-100 text-center">
           <button
             class="button button-royal button-block fnt4-5em btn-pad"
-            ng-click="randomCard();"
-          >
-            Serve Card dev
-          </button>
-          <!-- <button
-            class="button button-royal button-block fnt4-5em btn-pad"
             ng-show="!hasTurn && !showWinner"
           >
             Serve Card
-          </button> -->
+          </button>
         </div>
       </div>
       <div class="row">
@@ -58,7 +52,7 @@
         <div class="col col-50 text-center">
           <button
             class="button button-royal button-block button-outline fnt4-5em btn-pad m-0"
-            ng-disabled="!cardServed || !showWinner"
+            ng-disabled="!cardServed"
             ng-click="winnerSelectModal('showWinner');"
           >
             Show
