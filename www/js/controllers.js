@@ -212,6 +212,9 @@ angular
     $scope.confirmModalOkConfirm = function(player1, player2) {
       apiService.doSideShow(player1, player2, function(data) {});
     };
+    $scope.confirmModalOkConfirmForShow = function(player1, player2) {
+      $state.go("winner");
+    };
 
     $scope.cancelSideShow = function() {
       $scope.player.isTurn = true;
