@@ -1,9 +1,10 @@
 <ion-modal-view class="show-page">
   <ion-content>
     <div class="modal-sure winner-select-modal text-center">
-      <h4>Select the Player to Show</h4>
+      <h4 ng-if="playingPlayers().length>2">Select the Player to Show</h4>
+      <h4 ng-if="playingPlayers().length<=2">Are you sure you want a Show</h4>
       <div class="sure-modal">
-        <div class="padding-vertical">
+        <div class="padding-vertical" ng-if="playingPlayers().length>2">
           <div class="poker-table">
             <div class="row" ng-repeat="players in playersChunk">
               <div class="col" ng-repeat="player in players">
@@ -18,6 +19,15 @@
         <div class="row">
           <div class="col col-50 text-center">
             <button
+              ng-if="playingPlayers().length>2"
+              ng-disabled="numberOfWinnerSelected() != 2"
+              class="button button-balanced button-custom button-block fnt-36"
+              ng-click="confirmModalOkConfirmForShow();winnerSelectModalClose();"
+            >
+              Show
+            </button>
+            <button
+              ng-if="playingPlayers().length<=2"
               class="button button-balanced button-custom button-block fnt-36"
               ng-click="confirmModalOkConfirmForShow();winnerSelectModalClose();"
             >
