@@ -1,23 +1,13 @@
 <ion-modal-view class="show-page">
   <ion-content>
-    <div class="modal-sure text-center">
+    <div class="modal-sure  winner-select-modal text-center">
       <h4>Select Side Show Players</h4>
       <div class="sure-modal">
         <div class="padding-vertical">
-          <div class="row">
-            <div class="col col-50 text-center">
-              <div class="selected-player">
-                Player {{ turnPlayer.playerNo }}
-              </div>
-            </div>
-            <div class="col col-50 text-center">
-              <div class="select-player">
-                <select
-                  id="selectedPlayer"
-                  ng-model="sideShowObj.player"
-                  ng-options="player as  
-                  'Player '+player.playerNo for player in sideShowPlayers()"
-                ></select>
+          <div class="poker-table">
+            <div class="row" ng-repeat="players in playersChunk">
+              <div class="col" ng-repeat="player in players">
+                <tab-winner ng-player="player" ng-if="player"></tab-winner>
               </div>
             </div>
           </div>
@@ -25,9 +15,9 @@
         <div class="row">
           <div class="col col-50 text-center">
             <button
-              ng-disabled="!sideShowObj.player.playerNo"
+              ng-disabled="numberOfWinnerSelected() != 2"
               class="button button-balanced button-custom button-block fnt-36"
-              ng-click="confirmModalOkConfirm(turnPlayer.playerNo,sideShowObj.player.playerNo);confirmModalClose('onlyClose');"
+              ng-click="confirmModalOkConfirm(turnPlayer.playerNo);confirmModalClose('onlyClose');"
             >
               Confirm
             </button>

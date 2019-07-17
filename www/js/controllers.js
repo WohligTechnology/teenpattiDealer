@@ -102,6 +102,12 @@ angular
     $scope.randomCard = function() {
       apiService.randomCard();
     };
+    $scope.playingPlayers = function() {
+      var players = _.flatten($scope.playersChunk);
+      return _.filter(players, function(player) {
+        return player.isActive && !player.isFold;
+      });
+    };
 
     updateSocketFunction = function(data) {
       $scope.turnPlayer = _.find(data.playerCards, function(player) {
@@ -209,7 +215,20 @@ angular
       }, 1000);
     });
 
-    $scope.confirmModalOkConfirm = function(player1, player2) {
+    $scope.confirmModalOkConfirm = function() {
+      var players = _.flatten($scope.playersChunk);
+      var player1 = _.chain(players)
+        .filter(function(player) {
+          return player.isTurn;
+        })
+        .map("playerNo")
+        .value();
+      var player2 = _.chain(players)
+        .filter(function(player) {
+          return player.showWinner && !player.isTurn;
+        })
+        .map("playerNo")
+        .value();
       apiService.doSideShow(player1, player2, function(data) {});
     };
     $scope.confirmModalOkConfirmForShow = function(player1, player2) {
@@ -220,7 +239,11 @@ angular
         })
         .map("playerNo")
         .value();
-      $state.go("winners", { winner1: playerNos[0], winner2: playerNos[1] });
+      if ($scope.playingPlayers().length > 2) {
+        $state.go("winners", { winner1: playerNos[0], winner2: playerNos[1] });
+      } else {
+        $state.go("winner", { winner1: playerNos[0], winner2: playerNos[1] });
+      }
     };
 
     $scope.cancelSideShow = function() {
@@ -481,6 +504,12 @@ angular
       var players = _.flatten($scope.playersChunk);
       return _.filter(players, function(player) {
         return player.isActive;
+      });
+    };
+    $scope.playingPlayers = function() {
+      var players = _.flatten($scope.playersChunk);
+      return _.filter(players, function(player) {
+        return player.isActive && !player.isFold;
       });
     };
 
