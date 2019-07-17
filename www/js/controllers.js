@@ -216,7 +216,7 @@ angular
       var players = _.flatten($scope.playersChunk);
       var playerNos = _.chain(players)
         .filter(function(player) {
-          return player.showWinner;
+          return player.showWinner || player.isTurn;
         })
         .map("playerNo")
         .value();
@@ -424,7 +424,7 @@ angular
     $scope.numberOfWinnerSelected = function() {
       var players = _.flatten($scope.playersChunk);
       return _.filter(players, function(player) {
-        return player.showWinner;
+        return player.showWinner || player.isTurn;
       }).length;
     };
   })

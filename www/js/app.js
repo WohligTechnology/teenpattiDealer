@@ -173,7 +173,11 @@ angular
       templateUrl: "templates/directive/tab-winner.html",
       link: function($scope, element, attr) {
         $scope.makeShowWinner = function(tabId, status) {
-          if ($scope.player.isActive && !$scope.player.isFold) {
+          if (
+            $scope.player.isActive &&
+            !$scope.player.isFold &&
+            !$scope.player.isTurn
+          ) {
             $scope.player.showWinner = !$scope.player.showWinner;
           }
         };

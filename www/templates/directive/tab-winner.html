@@ -1,11 +1,11 @@
 <div
   class="winners-box"
   ng-click="makeShowWinner(player.playerNo,!player.isActive)"
-  ng-class="{selected:player.showWinner}"
+  ng-class="{selected:player.showWinner || player.isTurn, 'turn-enabled':player.isTurn}"
 >
   <button
     class="button button-positive button-block btn-start fnt-8em"
-    ng-disabled="!player.isActive || player.isFold"
+    ng-disabled="!player.isActive || player.isFold || player.isTurn"
   >
     <span class="holder">
       {{ player.playerNo }}
@@ -14,7 +14,4 @@
   <div class="circle-loader load-complete">
     <div class="checkmark draw" ng-style></div>
   </div>
-  <!-- <span class="winner-player-selected" ng-show="player.showWinner"
-    >SELECTED</span
-  > -->
 </div>

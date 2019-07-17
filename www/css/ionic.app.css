@@ -10625,3 +10625,11 @@ span.light-grey {
   color: #ef473a;
   font-size: 1.8rem;
   font-weight: 600; }
+
+
+
+.turn-enabled button {
+    color: white !important;
+    background-color: black !important;
+    opacity: 1 !important;
+}
