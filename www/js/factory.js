@@ -68,7 +68,7 @@ myApp.factory("apiService", function($http, $q, $timeout) {
     randomCard: function() {
       var cardValue = cards[_.random(0, cards.length - 3)].name;
       $http
-        .post(adminurl + "Player/serve", {
+        .post(adminurl + "Player/randomServe", {
           card: cardValue
         })
         .then(function(data) {
