@@ -469,6 +469,7 @@ angular
     $state,
     $ionicPopup
   ) {
+    $scope.dealer = { dealerPlayer: null };
     $scope.jokerText = "Joker enabling amount";
     io.socket.off("Update", updateSocketFunction);
     $scope.newGame = function() {
@@ -490,9 +491,7 @@ angular
         $scope.playersChunk = _.chunk(data.data.data.playerCards, 8);
         _.each($scope.allPlayers, function(n) {
           if (n.isDealer) {
-            $scope.dealer = {
-              dealerPlayer: n.playerNo
-            };
+            $scope.dealer.dealerPlayer = n.playerNo;
           }
         });
       });

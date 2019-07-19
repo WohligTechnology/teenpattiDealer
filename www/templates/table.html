@@ -8,16 +8,15 @@
       </div>
     </div>
     <form>
-      <div class="list">
+      <div class="list" ng-if="allPlayers">
         <label class="item item-input item-select" for="dealer">
           <div class="input-label"><i class="ion-ios-people"></i> Dealer</div>
-          <span class="low-opacity">(Default: {{ dealer.dealerPlayer }})</span>
-          <select id="dealer" ng-model="dealer.dealerPlayer">
-            <option
-              ng-repeat="p in activePlayers() track by $index"
-              value="{{ p.playerNo }}"
-              >Player {{ p.playerNo }}</option
-            >
+          <span class="low-opacity">(Selected: {{ dealer.dealerPlayer }})</span>
+          <select
+            id="dealer"
+            ng-model="dealer.dealerPlayer"
+            ng-options="p.playerNo as 'Player '+p.playerNo for p in activePlayers()"
+          >
           </select>
         </label>
       </div>
