@@ -130,6 +130,11 @@ angular
       };
       console.log($scope.players);
       $scope.activePlayers();
+      $scope.playingPlayersAll = $scope.playingPlayers();
+      console.log($scope.playingPlayersAll, "Playing");
+      if ($scope.playingPlayersAll.length == 1) {
+        $state.go("winner");
+      }
       // console.log("data making",data)
       $scope.$apply();
       $scope.modal3.hide();
@@ -172,6 +177,11 @@ angular
           });
         };
         $scope.activePlayers();
+        $scope.playingPlayersAll = $scope.playingPlayers();
+        console.log($scope.playingPlayersAll, "Playing");
+        if ($scope.playingPlayersAll.length == 1) {
+          $state.go("winner");
+        }
       });
     };
 
