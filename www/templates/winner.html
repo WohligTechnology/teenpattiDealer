@@ -1,5 +1,6 @@
 <ion-view view-title="Dealer">
   <ion-content>
+    <h2>{{ playingPlayers.length }}</h2>
     <div class="centerDiv">
       <div class="row">
         <div class="col-50">
@@ -28,6 +29,7 @@
             <button
               class="button button-balanced button-block fnt-3em icon-left ion-chevron-left"
               ui-sref="dealer"
+              ng-if="isTwoWinner"
             >
               Continue Game
             </button>

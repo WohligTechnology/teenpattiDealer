@@ -609,6 +609,7 @@ angular
           $scope.winners = _.filter($scope.players, function(player) {
             return player.winner;
           });
+
           $scope.winnerString = _.join(
             _.map($scope.winners, function(n) {
               return "Player " + n.playerNo;
@@ -620,6 +621,5 @@ angular
         $stateParams.winner2
       );
     };
-
     $scope.showWinner();
   });
