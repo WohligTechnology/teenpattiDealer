@@ -381,7 +381,15 @@ angular
       apiService.allIn(function(data) {});
     };
     $scope.fold = function() {
-      apiService.fold(function(data) {});
+      let data = {};
+      data.playerNo = $scope.turnPlayer.playerNo;
+      apiService.fold(data, function(data) {
+        if (data.data == "Not your turn") {
+          console.log("Not your turn", data);
+        } else {
+          console.log("Packed");
+        }
+      });
     };
 
     $scope.sideShow = function() {

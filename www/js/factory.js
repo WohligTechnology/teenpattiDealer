@@ -28,8 +28,8 @@ myApp.factory("apiService", function($http, $q, $timeout) {
         callback(data);
       });
     },
-    fold: function(callback) {
-      $http.post(adminurl + "Player/fold").then(function(data) {
+    fold: function(data, callback) {
+      $http.post(adminurl + "Player/fold", data).then(function(data) {
         callback(data);
       });
     },
