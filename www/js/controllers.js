@@ -387,7 +387,7 @@ angular
         if (data.data == "Not your turn") {
           console.log("Not your turn", data);
         } else {
-          console.log("Packed");
+          console.log("Packed sucessfully");
         }
       });
     };
