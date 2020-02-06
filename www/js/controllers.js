@@ -100,7 +100,7 @@ angular
   ) {
     io.socket.on("ShowWinner", function(data) {});
     $scope.randomCard = function() {
-      apiService.randomCard();
+      $scope.promiseRandomCard = apiService.randomCard();
     };
     $scope.playingPlayers = function() {
       var players = _.flatten($scope.playersChunk);
@@ -186,12 +186,12 @@ angular
     };
 
     $scope.openJokerCard = function() {
-      apiService.enableOneZanduCard(function(data) {
+      $scope.promiseBtnapi = apiService.enableOneZanduCard(function(data) {
         $scope.gameType.jokerCards = data.data.data;
       });
     };
     $scope.openJokerCardFlipper = function() {
-      apiService.enableOneFlipperCard(function(data) {
+      $scope.promiseBtnapi = apiService.enableOneFlipperCard(function(data) {
         $scope.gameType.jokerCards = data.data.data;
       });
     };
@@ -383,7 +383,7 @@ angular
     $scope.fold = function() {
       let data = {};
       data.playerNo = $scope.turnPlayer.playerNo;
-      apiService.fold(data, function(data) {
+      $scope.promiseBtnapi = apiService.fold(data, function(data) {
         if (data.data == "Not your turn") {
           console.log("Not your turn", data);
         } else {
@@ -393,7 +393,7 @@ angular
     };
 
     $scope.sideShow = function() {
-      apiService.sideShow(function(data) {});
+      $scope.promiseBtnapi = apiService.sideShow(function(data) {});
     };
     $scope.sideShowSelect = function() {
       $scope.modal5.show();
@@ -404,7 +404,7 @@ angular
     };
 
     $scope.move = function() {
-      apiService.move(function(data) {});
+      $scope.promiseMovebtn = apiService.move(function(data) {});
     };
 
     $scope.showWinnerPlayer = function() {
@@ -417,7 +417,7 @@ angular
 
     // Undo
     $scope.undo = function() {
-      apiService.undo(function(data) {});
+      $scope.promiseBtnapi = apiService.undo(function(data) {});
     };
 
     // Remove Cards
@@ -482,7 +482,7 @@ angular
     io.socket.off("Update", updateSocketFunction);
     $scope.newGame = function() {
       $scope.winnerData = {};
-      apiService.newGame(function(data) {
+      $scope.promiseBtnapi = apiService.newGame(function(data) {
         $scope.updatePlayers();
       });
     };

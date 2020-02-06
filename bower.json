@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "pokerjs": "https://github.com/Tairraos/Poker.JS.git",
-    "cardsJS": "https://github.com/richardschneider/cardsJS"
+    "cardsJS": "https://github.com/richardschneider/cardsJS",
+    "angular-promise-buttons": "^0.1.22"
   }
 }
