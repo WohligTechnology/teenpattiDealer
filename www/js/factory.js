@@ -186,6 +186,15 @@ myApp.factory("apiService", function($http, $q, $timeout) {
     },
     saveAdminUrl: function(adminurl) {
       $.jStorage.set("adminurl", adminurl);
+    },
+    getTeenPattiRate: function(callback) {
+      $http
+        .post("http://localhost:3000/TeenPattiOdds/getRates", {
+          cards: ["As"]
+        })
+        .then(function(data) {
+          callback(data);
+        });
     }
   };
 });

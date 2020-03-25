@@ -633,5 +633,21 @@ angular
   })
   .controller("TeenPattiCtrl", function($scope, $stateParams, apiService) {
     $scope.card = "As";
-    $scope.cards = [];
+    $scope.cards = ["As", "Ks", "Qs", "Js", "Ts"];
+    $scope.updateCards = function() {
+      apiService.getTeenPattiRate(function(response) {
+        $scope.response = response.data;
+      });
+    };
+    $scope.updateCards();
+    $scope.cardsOdd = function() {
+      return _.filter($scope.cards, function(card, index) {
+        return index % 2 == 1;
+      });
+    };
+    $scope.cardsEven = function() {
+      return _.filter($scope.cards, function(card, index) {
+        return index % 2 == 0;
+      });
+    };
   });
