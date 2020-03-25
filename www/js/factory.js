@@ -189,7 +189,7 @@ myApp.factory("apiService", function($http, $q, $timeout) {
     },
     getTeenPattiRate: function(cards, callback) {
       $http
-        .post("http://localhost:3000/TeenPattiOdds/getRates", {
+        .post("https://teenpattioddsapi.wohlig.in/TeenPattiOdds/getRates", {
           cards: cards
         })
         .then(function(data) {
