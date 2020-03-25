@@ -5,7 +5,7 @@
             <div class="col">
                 <h1>Player 1</h1>
                 <div>
-                    <span ng-repeat="card in cardsOdd()">
+                    <span ng-repeat="card in cardsEven()">
                         <card
                         card="{{ card }}"
                         ng-style="style"
@@ -18,7 +18,7 @@
             <div class="col">
                 <h1>Player 2</h1>
                 <div>
-                    <span ng-repeat="card in cardsEven()">
+                    <span ng-repeat="card in cardsOdd()">
                         <card
                         card="{{ card }}"
                         ng-style="style"
@@ -38,14 +38,14 @@
                         <div class="input-label">
                           Select Card
                         </div>
-                        <select>
+                        <select ng-model="form.card">
                           <option ng-repeat="card in allCards">{{card}}</option>
                         </select>
                     </label>
                 </div>
                 <div class="col">
-                    <button class="button button-assertive">
-                        Remove
+                    <button class="button button-balanced" ng-click="addCard(form.card)" ng-disabled="checkDuplicate(form.card)">
+                        Add
                     </button>
                 </div>
             </div>

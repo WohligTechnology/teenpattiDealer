@@ -649,13 +649,24 @@ angular
     ];
     var allCardColor = ["s", "h", "d", "c"];
     $scope.allCards = [];
+    $scope.form = { card: "As" };
     _.each(allCardNumber, function(number) {
       _.each(allCardColor, function(color) {
         $scope.allCards.push(number + color);
       });
     });
-    $scope.card = "As";
-    $scope.cards = ["As", "Ks", "Qs", "Js", "Ts"];
+    $scope.cards = [];
+    $scope.checkDuplicate = function(card) {
+      var indexVal = _.indexOf($scope.cards, card);
+      if (indexVal == -1) {
+        return false;
+      } else {
+        return true;
+      }
+    };
+    $scope.addCard = function(card) {
+      $scope.cards.push(card);
+    };
     $scope.updateCards = function() {
       apiService.getTeenPattiRate(function(response) {
         $scope.response = response.data;
