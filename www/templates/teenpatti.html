@@ -60,7 +60,7 @@
                 ng-if="allCards.length > 0"
               >
                 <div class="input-label">
-                  Select Card
+                  Select Cards
                 </div>
                 <select ng-model="form.card">
                   <option ng-repeat="card in allCards">{{card}}</option>
@@ -74,6 +74,16 @@
                 ng-disabled="checkDuplicate(form.card)"
               >
                 Add
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" ng-repeat="card in cards">
+              <button
+                class="button button-assertive"
+                ng-click="removeCard(card)"
+              >
+                Remove "{{card}}"
               </button>
             </div>
           </div>

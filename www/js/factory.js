@@ -187,10 +187,10 @@ myApp.factory("apiService", function($http, $q, $timeout) {
     saveAdminUrl: function(adminurl) {
       $.jStorage.set("adminurl", adminurl);
     },
-    getTeenPattiRate: function(callback) {
+    getTeenPattiRate: function(cards, callback) {
       $http
         .post("http://localhost:3000/TeenPattiOdds/getRates", {
-          cards: ["As"]
+          cards: cards
         })
         .then(function(data) {
           callback(data);

@@ -665,14 +665,25 @@ angular
       }
     };
     $scope.addCard = function(card) {
-      $scope.cards.push(card);
+      if ($scope.cards.length <= 4) {
+        $scope.cards.push(card);
+        $scope.updateCards();
+      } else {
+        console.log("Card can not be added");
+      }
     };
     $scope.updateCards = function() {
-      apiService.getTeenPattiRate(function(response) {
+      apiService.getTeenPattiRate($scope.cards, function(response) {
         $scope.response = response.data;
       });
     };
-    $scope.updateCards();
+    $scope.removeCard = function(card) {
+      _.remove($scope.cards, function(cardNew) {
+        return card == cardNew;
+      });
+      $scope.updateCards();
+    };
+
     $scope.cardsOdd = function() {
       return _.filter($scope.cards, function(card, index) {
         return index % 2 == 1;
