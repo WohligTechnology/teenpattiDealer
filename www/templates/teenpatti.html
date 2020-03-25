@@ -9,8 +9,8 @@
                         <card
                         card="{{ card }}"
                         ng-style="style"
-                        width="120"
-                        height="160"
+                        width="60"
+                        height="80"
                       >
                     </span>
                 </div>
@@ -22,8 +22,8 @@
                         <card
                         card="{{ card }}"
                         ng-style="style"
-                        width="120"
-                        height="160"
+                        width="60"
+                        height="80"
                       >
                     </span>
                 </div>
@@ -49,14 +49,22 @@
             <h1>Rates</h1>
             <div class="row">
                 <div class="col">
-                    <h4>Player 1 : {{response.player1Odds|number:2}}</h4>
+                    <h4>Player 1 : 
+                        <button class="button button-positive">
+                            {{response.player1Odds|number:2}}
+                        </button>
+                    </h4>
                   
                 </div>
                 <div class="col">
-                    <h4>Player 2 : {{response.player2Odds|number:2}}</h4>
+                    <h4>Player 2 : 
+                        <button class="button button-positive">{{response.player2Odds|number:2}}
+                        </button>
+                    </h4>
                 </div>
                 <div class="col">
-                    <h4>Draw : {{response.drawOdds|number:2}}</h4>
+                    <h4>Draw : <button class="button button-positive">{{response.drawOdds|number:2}}</button>
+                    </h4>
                 </div>
             </div>
            
