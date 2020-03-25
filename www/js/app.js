@@ -26,6 +26,12 @@ angular
     $ionicConfigProvider.views.maxCache(0);
     $stateProvider
 
+      .state("teenpatti", {
+        url: "/teenpatti",
+        templateUrl: "templates/teenpatti.html",
+        controller: "TeenPattiCtrl"
+      })
+
       .state("table", {
         url: "/table",
         templateUrl: "templates/table.html",
@@ -49,7 +55,7 @@ angular
         controller: "DealerCtrl"
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise("/table");
+    $urlRouterProvider.otherwise("/teenpatti");
   })
 
   .directive("card", function() {

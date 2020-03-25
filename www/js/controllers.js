@@ -630,4 +630,8 @@ angular
       );
     };
     $scope.showWinner();
+  })
+  .controller("TeenPattiCtrl", function($scope, $stateParams, apiService) {
+    $scope.card = "As";
+    $scope.cards = [];
   });
