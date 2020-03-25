@@ -632,6 +632,28 @@ angular
     $scope.showWinner();
   })
   .controller("TeenPattiCtrl", function($scope, $stateParams, apiService) {
+    var allCardNumber = [
+      "A",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "T",
+      "J",
+      "Q",
+      "K"
+    ];
+    var allCardColor = ["s", "h", "d", "c"];
+    $scope.allCards = [];
+    _.each(allCardNumber, function(number) {
+      _.each(allCardColor, function(color) {
+        $scope.allCards.push(number + color);
+      });
+    });
     $scope.card = "As";
     $scope.cards = ["As", "Ks", "Qs", "Js", "Ts"];
     $scope.updateCards = function() {
